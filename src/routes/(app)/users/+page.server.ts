@@ -3,7 +3,7 @@ import { users } from "$lib/server/db/schema.js";
 import { fail } from "@sveltejs/kit";
 import { hash } from "@node-rs/argon2";
 import { generateId } from "$lib/server/auth.js";
-import { eq, sql, inArray } from "drizzle-orm";
+import { eq, sql, inArray, count } from "drizzle-orm";
 import type { Actions, PageServerLoad } from "./$types.js";
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -103,7 +103,7 @@ export const actions: Actions = {
 		const [existing] = await db.select({ role: users.role }).from(users).where(eq(users.id, id));
 		if (existing?.role === "admin" && role !== "admin") {
 			const [adminCount] = await db
-				.select({ count: sql<number>`count(*)` })
+				.select({ count: count() })
 				.from(users)
 				.where(eq(users.role, "admin"));
 			if (adminCount.count <= 1) {
@@ -145,7 +145,7 @@ export const actions: Actions = {
 		const [target] = await db.select({ role: users.role }).from(users).where(eq(users.id, id));
 		if (target?.role === "admin") {
 			const [adminCount] = await db
-				.select({ count: sql<number>`count(*)` })
+				.select({ count: count() })
 				.from(users)
 				.where(eq(users.role, "admin"));
 			if (adminCount.count <= 1) {

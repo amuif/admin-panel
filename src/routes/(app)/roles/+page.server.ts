@@ -1,7 +1,7 @@
 import { db } from "$lib/server/db/index.js";
 import { users } from "$lib/server/db/schema.js";
 import { fail } from "@sveltejs/kit";
-import { eq, sql } from "drizzle-orm";
+import { eq, count } from "drizzle-orm";
 import type { Actions, PageServerLoad } from "./$types.js";
 
 const roleDefinitions = [
@@ -59,7 +59,7 @@ export const actions: Actions = {
 		const [target] = await db.select({ role: users.role }).from(users).where(eq(users.id, userId));
 		if (target?.role === "admin" && newRole !== "admin") {
 			const [adminCount] = await db
-				.select({ count: sql<number>`count(*)` })
+				.select({ count: count() })
 				.from(users)
 				.where(eq(users.role, "admin"));
 			if (adminCount.count <= 1) {

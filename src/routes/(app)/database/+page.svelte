@@ -8,14 +8,6 @@
 	import RowsIcon from "@lucide/svelte/icons/rows-3";
 
 	let { data } = $props();
-
-	function formatBytes(bytes: number) {
-		if (bytes === 0) return "0 B";
-		const k = 1024;
-		const sizes = ["B", "KB", "MB", "GB"];
-		const i = Math.floor(Math.log(bytes) / Math.log(k));
-		return `${parseFloat((bytes / Math.pow(k, i)).toFixed(1))} ${sizes[i]}`;
-	}
 </script>
 
 <svelte:head>
@@ -31,23 +23,25 @@
 	<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-				<Card.Title class="text-sm font-medium">Database Size</Card.Title>
+				<Card.Title class="text-sm font-medium">Database Type</Card.Title>
 				<HardDriveIcon class="text-muted-foreground size-4" />
 			</Card.Header>
 			<Card.Content>
-				<div class="text-2xl font-bold">{formatBytes(data.dbSize)}</div>
-				<p class="text-muted-foreground text-xs">SQLite file size</p>
+				<div class="text-2xl font-bold">{data.dbType}</div>
+				<p class="text-muted-foreground text-xs">Database engine</p>
 			</Card.Content>
 		</Card.Root>
 
 		<Card.Root>
 			<Card.Header class="flex flex-row items-center justify-between space-y-0 pb-2">
-				<Card.Title class="text-sm font-medium">Journal Mode</Card.Title>
+				<Card.Title class="text-sm font-medium">Server Version</Card.Title>
 				<DatabaseIcon class="text-muted-foreground size-4" />
 			</Card.Header>
 			<Card.Content>
-				<div class="text-2xl font-bold uppercase">{data.journalMode}</div>
-				<p class="text-muted-foreground text-xs">Write-ahead logging</p>
+				<div class="truncate text-sm font-bold" title={data.dbVersion}>
+					{data.dbVersion.split(" ").slice(0, 2).join(" ")}
+				</div>
+				<p class="text-muted-foreground text-xs">Postgres version</p>
 			</Card.Content>
 		</Card.Root>
 

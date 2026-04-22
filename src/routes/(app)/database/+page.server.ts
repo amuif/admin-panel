@@ -1,9 +1,7 @@
 import { db } from "$lib/server/db/index.js";
 import { users, sessions, pages, notifications, appSettings } from "$lib/server/db/schema.js";
-import { sql } from "drizzle-orm";
+import { sql, count } from "drizzle-orm";
 import { error } from "@sveltejs/kit";
-import { statSync } from "fs";
-import { resolve } from "path";
 import type { PageServerLoad } from "./$types.js";
 
 export const load: PageServerLoad = async ({ locals }) => {
@@ -12,24 +10,15 @@ export const load: PageServerLoad = async ({ locals }) => {
 	}
 
 	// Get table row counts
-	const [usersCount] = await db.select({ count: sql<number>`count(*)` }).from(users);
-	const [sessionsCount] = await db.select({ count: sql<number>`count(*)` }).from(sessions);
-	const [pagesCount] = await db.select({ count: sql<number>`count(*)` }).from(pages);
-	const [notificationsCount] = await db.select({ count: sql<number>`count(*)` }).from(notifications);
-	const [settingsCount] = await db.select({ count: sql<number>`count(*)` }).from(appSettings);
+	const [usersCount] = await db.select({ count: count() }).from(users);
+	const [sessionsCount] = await db.select({ count: count() }).from(sessions);
+	const [pagesCount] = await db.select({ count: count() }).from(pages);
+	const [notificationsCount] = await db.select({ count: count() }).from(notifications);
+	const [settingsCount] = await db.select({ count: count() }).from(appSettings);
 
-	// Get journal mode
-	const journalResult = db.$client.pragma("journal_mode") as { journal_mode: string }[];
-
-	// Get DB file size
-	let dbSizeBytes = 0;
-	try {
-		const dbPath = resolve("svelteforge.db");
-		const stats = statSync(dbPath);
-		dbSizeBytes = stats.size;
-	} catch {
-		// DB file not found at expected path
-	}
+	// Get Postgres version
+	const [versionRow] = await db.execute<{ version: string }>(sql`SELECT version()`);
+	const dbVersion = (versionRow as { version: string })?.version ?? "PostgreSQL";
 
 	const tables = [
 		{ name: "users", rows: usersCount.count },
@@ -40,8 +29,8 @@ export const load: PageServerLoad = async ({ locals }) => {
 	];
 
 	return {
-		dbSize: dbSizeBytes,
-		journalMode: journalResult?.[0]?.journal_mode ?? "unknown",
+		dbType: "PostgreSQL",
+		dbVersion,
 		tables,
 		totalRows: tables.reduce((sum, t) => sum + t.rows, 0),
 	};

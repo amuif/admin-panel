@@ -1,7 +1,7 @@
 import { redirect, error } from "@sveltejs/kit";
 import { db } from "$lib/server/db/index.js";
 import { notifications, appSettings } from "$lib/server/db/schema.js";
-import { eq, and, or, isNull, sql, desc } from "drizzle-orm";
+import { eq, and, or, isNull, sql, desc, count } from "drizzle-orm";
 import type { LayoutServerLoad } from "./$types.js";
 
 export const load: LayoutServerLoad = async ({ locals }) => {
@@ -23,7 +23,7 @@ export const load: LayoutServerLoad = async ({ locals }) => {
 	);
 
 	const [countResult] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(notifications)
 		.where(and(eq(notifications.read, false), userNotificationFilter));
 
