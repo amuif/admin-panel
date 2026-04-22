@@ -1,50 +1,65 @@
 import { db } from "$lib/server/db/index.js";
 import { users, sessions, pages, notifications, appSettings } from "$lib/server/db/schema.js";
-import { sql, eq, gt, desc, or, isNull } from "drizzle-orm";
+import { sql, eq, gt, gte, lt, desc, or, isNull, and, count } from "drizzle-orm";
 import type { PageServerLoad } from "./$types.js";
 
 export const load: PageServerLoad = async ({ locals }) => {
-	const now = Date.now();
+	const now = new Date();
+
+	// Date Calculations (Keep as Date objects for Postgres)
 	const thisMonthStart = new Date();
 	thisMonthStart.setDate(1);
 	thisMonthStart.setHours(0, 0, 0, 0);
+
 	const lastMonthStart = new Date(thisMonthStart);
 	lastMonthStart.setMonth(lastMonthStart.getMonth() - 1);
 
-	const thisMonthSec = Math.floor(thisMonthStart.getTime() / 1000);
-	const lastMonthSec = Math.floor(lastMonthStart.getTime() / 1000);
+	const sixMonthsAgo = new Date();
+	sixMonthsAgo.setMonth(sixMonthsAgo.getMonth() - 6);
 
 	// Current stats
-	const [userCount] = await db.select({ count: sql<number>`count(*)` }).from(users);
+	const [userCount] = await db.select({ count: count() }).from(users);
 	const [activeSessionCount] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(sessions)
 		.where(gt(sessions.expiresAt, now));
-	const [pageCount] = await db.select({ count: sql<number>`count(*)` }).from(pages);
+	const [pageCount] = await db.select({ count: count() }).from(pages);
 	const [unreadCount] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(notifications)
 		.where(eq(notifications.read, false));
 
 	// Trend: users this month vs last month
 	const [usersThisMonth] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(users)
-		.where(sql`created_at >= ${thisMonthSec}`);
+		.where(gte(users.createdAt, thisMonthStart));
+
 	const [usersLastMonth] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(users)
-		.where(sql`created_at >= ${lastMonthSec} AND created_at < ${thisMonthSec}`);
+		.where(
+			and(
+				gte(users.createdAt, lastMonthStart),
+				lt(users.createdAt, thisMonthStart)
+			)
+		);
 
 	// Trend: pages this month vs last month
 	const [pagesThisMonth] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(pages)
-		.where(sql`created_at >= ${thisMonthSec}`);
+		.where(gte(pages.createdAt, thisMonthStart));
+
 	const [pagesLastMonth] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(pages)
-		.where(sql`created_at >= ${lastMonthSec} AND created_at < ${thisMonthSec}`);
+		.where(
+			and(
+				gte(pages.createdAt, lastMonthStart),
+				lt(pages.createdAt, thisMonthStart)
+			)
+		);
 
 	function calcTrend(current: number, previous: number) {
 		if (previous === 0) return current > 0 ? 100 : 0;
@@ -55,22 +70,27 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const roleDistribution = await db
 		.select({
 			role: users.role,
-			count: sql<number>`count(*)`,
+			count: count(),
 		})
 		.from(users)
 		.groupBy(users.role);
 
-	// Monthly user signups for chart
+	// Monthly user signups (Postgres uses to_char instead of strftime)
+	// --- Fix Monthly Signups ---
 	const monthlySignups = await db
 		.select({
-			month: sql<string>`strftime('%Y-%m-01', created_at, 'unixepoch')`,
-			count: sql<number>`count(*)`,
+			// Use the exact same string in all three places
+			month: sql<string>`to_char(${users.createdAt}, 'YYYY-MM-01')`,
+			count: count(),
 		})
 		.from(users)
-		.groupBy(sql`strftime('%Y-%m', created_at, 'unixepoch')`)
-		.orderBy(sql`strftime('%Y-%m', created_at, 'unixepoch')`);
+		.groupBy(sql`to_char(${users.createdAt}, 'YYYY-MM-01')`) // Must match SELECT
+		.orderBy(sql`to_char(${users.createdAt}, 'YYYY-MM-01')`); // Must match SELECT
 
-	// Recent activity: newest users and pages
+
+
+
+	// Recent activity
 	const recentUsers = await db
 		.select({ name: users.name, createdAt: users.createdAt })
 		.from(users)
@@ -92,7 +112,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 	const activity: ActivityItem[] = [
 		...recentUsers.map((u) => ({
-			label: u.name,
+			label: u.name ?? "New User",
 			description: "Joined the platform",
 			time: u.createdAt,
 		})),
@@ -105,7 +125,7 @@ export const load: PageServerLoad = async ({ locals }) => {
 		.sort((a, b) => b.time.getTime() - a.time.getTime())
 		.slice(0, 5);
 
-	// Recent notifications for dashboard feed
+	// Recent notifications
 	const userNotifFilter = or(
 		eq(notifications.userId, locals.user!.id),
 		isNull(notifications.userId)
@@ -126,11 +146,11 @@ export const load: PageServerLoad = async ({ locals }) => {
 
 	// Quick stats
 	const [publishedCount] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(pages)
 		.where(eq(pages.status, "published"));
 	const [editorCount] = await db
-		.select({ count: sql<number>`count(*)` })
+		.select({ count: count() })
 		.from(users)
 		.where(eq(users.role, "editor"));
 
@@ -138,31 +158,29 @@ export const load: PageServerLoad = async ({ locals }) => {
 	const pagesByStatus = await db
 		.select({
 			status: pages.status,
-			count: sql<number>`count(*)`,
+			count: count(),
 		})
 		.from(pages)
 		.groupBy(pages.status);
 
-	// Content creation trend (last 6 months, by status)
-	const sixMonthsAgoSec = Math.floor(
-		new Date(Date.now() - 180 * 86400000).getTime() / 1000
-	);
+	// Content creation trend (Postgres to_char)
 	const contentTrend = await db
 		.select({
-			month: sql<string>`strftime('%Y-%m-01', created_at, 'unixepoch')`,
+			month: sql<string>`to_char(${pages.createdAt}, 'YYYY-MM-01')`,
 			status: pages.status,
-			count: sql<number>`count(*)`,
+			count: count(),
 		})
 		.from(pages)
-		.where(sql`created_at >= ${sixMonthsAgoSec}`)
-		.groupBy(sql`strftime('%Y-%m', created_at, 'unixepoch')`, pages.status)
-		.orderBy(sql`strftime('%Y-%m', created_at, 'unixepoch')`);
+		.where(gte(pages.createdAt, sixMonthsAgo))
+		.groupBy(
+			sql`to_char(${pages.createdAt}, 'YYYY-MM-01')`,
+			pages.status
+		)
+		.orderBy(sql`to_char(${pages.createdAt}, 'YYYY-MM-01')`);
 
-	// System status
 	const maintenanceSetting = await db.query.appSettings.findFirst({
 		where: eq(appSettings.key, "maintenanceMode"),
 	});
-
 	return {
 		stats: {
 			totalUsers: userCount.count,

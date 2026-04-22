@@ -26,11 +26,13 @@ export const actions: Actions = {
 		if (typeof password !== "string" || password.length < 6 || password.length > 255) {
 			return fail(400, { message: "Invalid password (6-255 characters required)" });
 		}
+		console.log("Attempting login for username:", username);
+		console.log("Password:", password);
 
 		const existingUser = await db.query.users.findFirst({
 			where: eq(users.username, username.toLowerCase()),
 		});
-
+		console.log("Existing user found:", existingUser);
 		if (!existingUser) {
 			return fail(400, { message: "Incorrect username or password" });
 		}

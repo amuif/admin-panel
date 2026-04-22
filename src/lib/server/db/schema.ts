@@ -1,5 +1,5 @@
 import { boolean, index, uniqueIndex } from "drizzle-orm/pg-core";
-import { integer, pgTable, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, text, timestamp } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
 	id: text("id").primaryKey(),
@@ -11,7 +11,7 @@ export const users = pgTable("users", {
 	role: text("role", { enum: ["admin", "editor", "viewer"] })
 		.notNull()
 		.default("viewer"),
-	createdAt: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at").defaultNow()
 		.notNull()
 		.$defaultFn(() => new Date()),
@@ -22,10 +22,10 @@ export const sessions = pgTable("sessions", {
 	userId: text("user_id")
 		.notNull()
 		.references(() => users.id),
-	expiresAt: integer("expires_at").notNull(),
+	expiresAt: timestamp("expires_at", { mode: "date" }).notNull(),
 	userAgent: text("user_agent"),
 	ipAddress: text("ip_address"),
-	createdAt: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at", { mode: "date" },).defaultNow().notNull(),
 });
 
 export const pages = pgTable("pages", {
@@ -42,7 +42,7 @@ export const pages = pgTable("pages", {
 	authorId: text("author_id")
 		.notNull()
 		.references(() => users.id),
-	createdAt: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 	updatedAt: timestamp("updated_at").defaultNow()
 		.notNull()
 		.$defaultFn(() => new Date()),
@@ -51,14 +51,14 @@ export const pages = pgTable("pages", {
 
 export const notifications = pgTable("notifications", {
 	id: text("id").primaryKey(),
-	userId: text("user_id").references(() => users.id),
+	userId: text("user_id").references(() => users.id, { onDelete: "cascade" }),
 	title: text("title").notNull(),
 	message: text("message").notNull(),
 	type: text("type", { enum: ["info", "warning", "error", "success"] })
 		.notNull()
 		.default("info"),
 	read: boolean("read").notNull().default(false),
-	createdAt: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 });
 
 export const passwordResetTokens = pgTable("password_reset_tokens", {
@@ -67,7 +67,7 @@ export const passwordResetTokens = pgTable("password_reset_tokens", {
 		.notNull()
 		.references(() => users.id),
 	tokenHash: text("token_hash").notNull(),
-	expiresAt: timestamp("expires_at").notNull(),
+	expiresAt: timestamp("expires_at", { mode: "date" }).notNull(),
 });
 
 export const oauthAccounts = pgTable(
@@ -79,7 +79,7 @@ export const oauthAccounts = pgTable(
 			.references(() => users.id),
 		provider: text("provider", { enum: ["google", "github"] }).notNull(),
 		providerUserId: text("provider_user_id").notNull(),
-		created_at: timestamp("created_at").defaultNow().notNull(),
+		created_at: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 	},
 	(table) => [uniqueIndex("oauth_provider_user_idx").on(table.provider, table.providerUserId)]
 );

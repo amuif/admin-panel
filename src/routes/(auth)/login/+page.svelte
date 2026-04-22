@@ -5,7 +5,7 @@
 	import { Input } from "$lib/components/ui/input/index.js";
 	import { Label } from "$lib/components/ui/label/index.js";
 	import { Separator } from "$lib/components/ui/separator/index.js";
-	import ZapIcon from "@lucide/svelte/icons/zap";
+	// import ZapIcon from "@lucide/svelte/icons/zap";
 
 	let { form, data } = $props();
 
@@ -23,7 +23,7 @@
 				<div
 					class="bg-primary text-primary-foreground flex size-12 items-center justify-center rounded-xl"
 				>
-					<ZapIcon class="size-6" />
+					<!-- <ZapIcon class="size-6" /> -->
 				</div>
 			</div>
 			<Card.Title class="text-2xl font-bold">Welcome back</Card.Title>
@@ -33,8 +33,8 @@
 			<div class="bg-muted mb-4 rounded-md p-3 text-sm">
 				<p class="font-medium">Demo Access</p>
 				<p class="text-muted-foreground mt-1">
-					Credentials are pre-filled: <span class="font-mono font-semibold">demo</span> /
-					<span class="font-mono font-semibold">SvelteDemo2026!</span> — just click
+					Credentials are pre-filled: <span class="font-mono font-semibold">sarah</span> /
+					<span class="font-mono font-semibold">password123</span> — just click
 					<strong>Sign in</strong> to explore (read-only).
 				</p>
 			</div>
@@ -53,7 +53,7 @@
 						placeholder="Enter your username"
 						required
 						autocomplete="username"
-						value="demo"
+						value="sarah"
 					/>
 				</div>
 				<div class="space-y-2">
@@ -65,7 +65,7 @@
 						placeholder="Enter your password"
 						required
 						autocomplete="current-password"
-						value="SvelteDemo2026!"
+						value="password123"
 					/>
 				</div>
 				<Button type="submit" class="w-full">Sign in</Button>

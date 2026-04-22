@@ -36,7 +36,7 @@ export async function createSession(
 	metadata?: { userAgent?: string | null; ipAddress?: string | null }
 ): Promise<Session> {
 	const sessionId = hashToken(token);
-	const expiresAt = Date.now() + SESSION_LIFETIME_MS;
+	const expiresAt = new Date(Date.now() + SESSION_LIFETIME_MS);
 
 	const session: Session = {
 		id: sessionId,
@@ -78,14 +78,15 @@ export async function validateSession(token: string): Promise<SessionValidationR
 	const { session, user } = result[0];
 
 	// Expired — clean up and reject
-	if (session.expiresAt <= Date.now()) {
+	if (session.expiresAt.getTime() <= Date.now()) {
 		await db.delete(sessions).where(eq(sessions.id, sessionId));
 		return { session: null, user: null };
 	}
 
 	// Auto-extend if within refresh threshold
-	if (session.expiresAt - Date.now() < SESSION_REFRESH_THRESHOLD_MS) {
-		session.expiresAt = Date.now() + SESSION_LIFETIME_MS;
+	if (session.expiresAt.getTime() - Date.now() < SESSION_REFRESH_THRESHOLD_MS) {
+		const newExpires = new Date(Date.now() + SESSION_LIFETIME_MS);
+		session.expiresAt = newExpires;
 		await db
 			.update(sessions)
 			.set({ expiresAt: session.expiresAt })
@@ -99,13 +100,14 @@ export async function invalidateSession(sessionId: string): Promise<void> {
 	await db.delete(sessions).where(eq(sessions.id, sessionId));
 }
 
-export function setSessionCookie(cookies: Cookies, token: string, expiresAt: number): void {
+export function setSessionCookie(cookies: Cookies, token: string, expiresAt: Date | number): void {
+	const exp = expiresAt instanceof Date ? expiresAt : new Date(expiresAt);
 	cookies.set(SESSION_COOKIE_NAME, token, {
 		httpOnly: true,
 		sameSite: "lax",
 		secure: !dev,
 		path: "/",
-		expires: new Date(expiresAt),
+		expires: exp,
 	});
 }
 

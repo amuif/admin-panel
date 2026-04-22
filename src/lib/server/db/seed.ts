@@ -24,11 +24,11 @@ function randomInt(min: number, max: number): number {
 
 async function seed() {
 	console.log("Clearing existing data...");
-	db.delete(notifications).execute();
-	db.delete(pages).execute();
-	db.delete(sessions).execute();
-	db.delete(appSettings).execute();
-	db.delete(users).execute();
+	await db.delete(notifications).execute();
+	await db.delete(pages).execute();
+	await db.delete(sessions).execute();
+	await db.delete(appSettings).execute();
+	await db.delete(users).execute();
 
 	// --- USERS ---
 	// ~50 users with accelerating signups over 12 months (realistic growth curve)
@@ -305,7 +305,13 @@ async function seed() {
 	console.log("Login: admin@svelteforge.dev / password123 (or any user with password123)");
 }
 
-seed().catch((err) => {
-	console.error("Seed failed:", err);
-	process.exit(1);
-});
+seed()
+.then(() => {
+		console.log("Connecting to:", process.env.DATABASE_URL!);
+		console.log("Process exiting successfully.");
+		process.exit(0);
+	})
+	.catch((err) => {
+		console.error("Seed failed:", err);
+		process.exit(1);
+	});

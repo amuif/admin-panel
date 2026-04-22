@@ -15,7 +15,7 @@
 		"db:migrate": "drizzle-kit migrate --config=./drizzle.config.ts",
 		"db:push": "drizzle-kit push --config=./drizzle.config.ts",
 		"db:studio": "drizzle-kit studio --config=./drizzle.config.ts",
-		"db:seed": "npx tsx src/lib/server/db/seed.ts",
+		"db:seed": "bunx tsx src/lib/server/db/seed.ts",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:e2e": "playwright test",
