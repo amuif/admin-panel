@@ -59,7 +59,7 @@
 </script>
 
 <svelte:head>
-	<title>Notifications - SvelteForge Admin</title>
+	<title>Notifications - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Components - SvelteForge Admin Documentation</title>
+	<title>Components - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Comprehensive guide to all Svelte 5 components in SvelteForge Admin — built with runes, shadcn-svelte, and SvelteKit."
+		content="Comprehensive guide to all Svelte 5 components in Admin-template Admin — built with runes, shadcn-svelte, and SvelteKit."
 	/>
 </svelte:head>
 
 <h1>Components</h1>
 
 <p>
-	Every component in SvelteForge Admin is built with <strong>Svelte 5's runes API</strong>. There
+	Every component in Admin-template Admin is built with <strong>Svelte 5's runes API</strong>. There
 	are no legacy <code>export let</code> declarations or <code>$:</code> reactive statements anywhere
 	in the codebase. Instead, components use <code>$props</code> for inputs, <code>$state</code> for
 	local reactivity, <code>$derived</code> for computed values, <code>$effect</code> for side effects,
@@ -24,7 +24,7 @@
 <h2>shadcn-svelte Foundation</h2>
 
 <p>
-	SvelteForge Admin's UI layer is built on <strong>shadcn-svelte</strong>, a collection of
+	Admin-template Admin's UI layer is built on <strong>shadcn-svelte</strong>, a collection of
 	beautifully designed, accessible components built on top of
 	<strong>bits-ui</strong> headless primitives. Unlike traditional component libraries, shadcn-svelte
 	components are copied into your project — you own the code and can customize it freely.
@@ -50,7 +50,7 @@
 
 <h3>Available UI components</h3>
 
-<p>SvelteForge Admin includes the following shadcn-svelte components out of the box:</p>
+<p>Admin-template Admin includes the following shadcn-svelte components out of the box:</p>
 
 <table>
 	<thead>
@@ -86,7 +86,7 @@
 <h2>App-Level Components</h2>
 
 <p>
-	Built on top of the shadcn-svelte primitives, SvelteForge Admin includes purpose-built
+	Built on top of the shadcn-svelte primitives, Admin-template Admin includes purpose-built
 	<strong>Svelte 5</strong> components for the admin dashboard experience. Each one uses the runes
 	API exclusively.
 </p>
@@ -387,7 +387,7 @@
 <h2>Svelte 5 Reactive Hooks</h2>
 
 <p>
-	SvelteForge Admin includes custom reactive utilities that leverage <strong>Svelte 5's</strong>
+	Admin-template Admin includes custom reactive utilities that leverage <strong>Svelte 5's</strong>
 	class-based reactivity pattern.
 </p>
 
@@ -452,7 +452,7 @@ cn("px-4 py-2 bg-primary", isActive && "bg-primary/90", className);
 				Want Chat, Mail, Kanban boards, Calendar, File Manager, and more? Our premium
 				Svelte-quality templates on DashboardPack ship with 50+ pages, advanced CRUD
 				interfaces, and dozens of pre-built components — all built to the same standards
-				you see here in SvelteForge Admin.
+				you see here in Admin-template Admin.
 			</p>
 			<ul class="text-muted-foreground mt-3 space-y-1 text-sm">
 				<li><strong>Chat</strong> — Real-time messaging UI with conversations and contacts</li>
@@ -463,7 +463,7 @@ cn("px-4 py-2 bg-primary", isActive && "bg-primary/90", className);
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"

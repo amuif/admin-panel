@@ -144,7 +144,7 @@
 </script>
 
 <svelte:head>
-	<title>Users - SvelteForge Admin</title>
+	<title>Users - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

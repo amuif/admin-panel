@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Getting Started - SvelteForge Admin Documentation</title>
+	<title>Getting Started - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Install and set up SvelteForge Admin — a SvelteKit 2 + Svelte 5 admin dashboard with auth, RBAC, and database seeding."
+		content="Install and set up Admin-template Admin — a SvelteKit 2 + Svelte 5 admin dashboard with auth, RBAC, and database seeding."
 	/>
 </svelte:head>
 
 <h1>Getting Started</h1>
 
 <p>
-	Get SvelteForge Admin running locally in under five minutes. The project uses
+	Get Admin-template Admin running locally in under five minutes. The project uses
 	<strong>SvelteKit</strong> with <strong>Svelte 5</strong>, so the development experience is fast —
 	hot module replacement, instant server restarts, and type-safe routing out of the box.
 </p>
@@ -28,8 +28,8 @@
 
 <h3>1. Clone the repository</h3>
 
-<pre><code class="language-bash">git clone https://github.com/your-org/svelteforge-admin.git
-cd svelteforge-admin</code></pre>
+<pre><code class="language-bash">git clone https://github.com/your-org/Admin-template-admin.git
+cd Admin-template-admin</code></pre>
 
 <h3>2. Install dependencies</h3>
 
@@ -38,14 +38,14 @@ cd svelteforge-admin</code></pre>
 <h3>3. Set up the database</h3>
 
 <p>
-	SvelteForge uses <strong>Drizzle ORM</strong> with <strong>SQLite</strong> (via better-sqlite3 in WAL
+	Admin-template uses <strong>Drizzle ORM</strong> with <strong>SQLite</strong> (via better-sqlite3 in WAL
 	mode). Push the schema to create the database file:
 </p>
 
 <pre><code class="language-bash">pnpm db:push</code></pre>
 
 <p>
-	This creates <code>svelteforge.db</code> in the project root with all tables: users, sessions, pages,
+	This creates <code>Admin-template.db</code> in the project root with all tables: users, sessions, pages,
 	notifications, oauthAccounts, appSettings, and passwordResetTokens.
 </p>
 
@@ -145,7 +145,7 @@ cd svelteforge-admin</code></pre>
 </p>
 
 <pre><code class="language-bash"># Database
-DATABASE_URL=svelteforge.db
+DATABASE_URL=Admin-template.db
 
 # Application
 ORIGIN=http://localhost:5173
@@ -207,7 +207,7 @@ GITHUB_CLIENT_SECRET=</code></pre>
 
 <h2>Available Commands</h2>
 
-<p>SvelteForge Admin uses <strong>pnpm</strong> as its package manager. Here are all available scripts:</p>
+<p>Admin-template Admin uses <strong>pnpm</strong> as its package manager. Here are all available scripts:</p>
 
 <table>
 	<thead>
@@ -283,7 +283,7 @@ GITHUB_CLIENT_SECRET=</code></pre>
 <h2>SvelteKit Route Groups</h2>
 
 <p>
-	SvelteForge Admin uses <strong>SvelteKit's file-based routing</strong> with route groups to apply
+	Admin-template Admin uses <strong>SvelteKit's file-based routing</strong> with route groups to apply
 	different layouts and access controls to different sections of the app:
 </p>
 
@@ -336,37 +336,37 @@ GITHUB_CLIENT_SECRET=</code></pre>
 				Scale Up with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin is a great starting point. When your project needs advanced
+				Admin-template Admin is a great starting point. When your project needs advanced
 				features — multi-layout dashboards, production CRUD generators, theme customizers,
 				and 50+ pre-built pages — explore the premium templates at DashboardPack.
 			</p>
 			<div class="text-muted-foreground mt-3 flex flex-wrap gap-x-4 gap-y-1 text-sm">
 				<a
-					href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+					href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-primary hover:underline">Apex</a
 				>
 				<a
-					href="https://dashboardpack.com/theme-details/zenith-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+					href="https://dashboardpack.com/theme-details/zenith-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-primary hover:underline">Zenith</a
 				>
 				<a
-					href="https://dashboardpack.com/theme-details/signal-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+					href="https://dashboardpack.com/theme-details/signal-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-primary hover:underline">Signal</a
 				>
 				<a
-					href="https://dashboardpack.com/theme-details/ember-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+					href="https://dashboardpack.com/theme-details/ember-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-primary hover:underline">Ember</a
 				>
 				<a
-					href="https://dashboardpack.com/theme-details/flux-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+					href="https://dashboardpack.com/theme-details/flux-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="text-primary hover:underline">Flux</a
@@ -375,7 +375,7 @@ GITHUB_CLIENT_SECRET=</code></pre>
 		</div>
 		<div class="shrink-0">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"

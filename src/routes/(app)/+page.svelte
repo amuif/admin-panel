@@ -173,7 +173,7 @@
 </script>
 
 <svelte:head>
-	<title>Dashboard - SvelteForge Admin</title>
+	<title>Dashboard - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

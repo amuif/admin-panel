@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Deployment - SvelteForge Admin Documentation</title>
+	<title>Deployment - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Deploy SvelteForge Admin to production with Docker, Railway, Fly.io, or a VPS. Covers Node.js adapter configuration, SQLite persistence, OAuth setup, and security for your Svelte 5 and SvelteKit admin dashboard."
+		content="Deploy Admin-template Admin to production with Docker, Railway, Fly.io, or a VPS. Covers Node.js adapter configuration, SQLite persistence, OAuth setup, and security for your Svelte 5 and SvelteKit admin dashboard."
 	/>
 </svelte:head>
 
 <h1>Deployment</h1>
 
 <p>
-	SvelteForge Admin is a <strong>Svelte 5</strong> and <strong>SvelteKit</strong> application that
+	Admin-template Admin is a <strong>Svelte 5</strong> and <strong>SvelteKit</strong> application that
 	uses <code>@sveltejs/adapter-node</code> for Node.js deployment. Because the database is
 	<strong>SQLite</strong> (via better-sqlite3), your hosting environment must provide a persistent
 	filesystem and a full Node.js runtime.
@@ -127,8 +127,8 @@ export default &#123;
 		<tr>
 			<td><code>DATABASE_URL</code></td>
 			<td>Yes</td>
-			<td><code>svelteforge.db</code></td>
-			<td>Path to the SQLite database file. In Docker, point to a mounted volume (e.g., <code>/app/data/svelteforge.db</code>).</td>
+			<td><code>Admin-template.db</code></td>
+			<td>Path to the SQLite database file. In Docker, point to a mounted volume (e.g., <code>/app/data/Admin-template.db</code>).</td>
 		</tr>
 		<tr>
 			<td><code>ORIGIN</code></td>
@@ -191,7 +191,7 @@ export default &#123;
 <h2>Docker Deployment</h2>
 
 <p>
-	Docker is the recommended way to deploy SvelteForge Admin. The multi-stage build keeps the final
+	Docker is the recommended way to deploy Admin-template Admin. The multi-stage build keeps the final
 	image small while properly compiling the better-sqlite3 native module.
 </p>
 
@@ -231,7 +231,7 @@ RUN mkdir -p /app/data
 ENV NODE_ENV=production
 ENV PORT=3000
 ENV HOST=0.0.0.0
-ENV DATABASE_URL=/app/data/svelteforge.db
+ENV DATABASE_URL=/app/data/Admin-template.db
 
 EXPOSE 3000
 
@@ -241,14 +241,14 @@ CMD ["node", "build/index.js"]</code></pre>
 
 <pre><code class="language-yaml">version: "3.8"
 services:
-  svelteforge:
+  Admin-template:
     build: .
     ports:
       - "3000:3000"
     volumes:
       - ./data:/app/data
     environment:
-      - DATABASE_URL=/app/data/svelteforge.db
+      - DATABASE_URL=/app/data/Admin-template.db
       - ORIGIN=https://admin.example.com
       - GOOGLE_CLIENT_ID=$&#123;GOOGLE_CLIENT_ID&#125;
       - GOOGLE_CLIENT_SECRET=$&#123;GOOGLE_CLIENT_SECRET&#125;
@@ -259,10 +259,10 @@ services:
 <h3>Build and Run</h3>
 
 <pre><code class="language-bash"># Build the Docker image
-docker build -t svelteforge-admin .
+docker build -t Admin-template-admin .
 
 # Run with a persistent volume for SQLite
-docker run -p 3000:3000 -v ./data:/app/data svelteforge-admin</code></pre>
+docker run -p 3000:3000 -v ./data:/app/data Admin-template-admin</code></pre>
 
 <p>
 	<strong>Important:</strong> The <code>-v ./data:/app/data</code> volume mount is critical. Without
@@ -313,7 +313,7 @@ railway up</code></pre>
 
 <pre><code class="language-bash"># Fly.io deployment
 fly launch
-fly volumes create svelteforge_data --size 1 --region ord
+fly volumes create Admin-template_data --size 1 --region ord
 fly deploy</code></pre>
 
 <h3>Render</h3>
@@ -346,14 +346,14 @@ fly deploy</code></pre>
 
 <pre><code class="language-bash"># Example: PM2 process manager on a VPS
 npm install -g pm2
-pm2 start build/index.js --name svelteforge
+pm2 start build/index.js --name Admin-template
 pm2 save
 pm2 startup</code></pre>
 
 <h2>NOT Compatible</h2>
 
 <p>
-	These platforms <strong>cannot</strong> run SvelteForge Admin due to better-sqlite3 being a native
+	These platforms <strong>cannot</strong> run Admin-template Admin due to better-sqlite3 being a native
 	C++ addon that requires a full Node.js runtime and persistent filesystem:
 </p>
 
@@ -429,7 +429,7 @@ pm2 startup</code></pre>
 <h2>Database Backup</h2>
 
 <p>
-	SQLite makes backups straightforward — the database is a single file. However, because SvelteForge
+	SQLite makes backups straightforward — the database is a single file. However, because Admin-template
 	Admin runs SQLite in WAL (Write-Ahead Logging) mode, there are a few nuances.
 </p>
 
@@ -440,9 +440,9 @@ pm2 startup</code></pre>
 </p>
 
 <ul>
-	<li><code>svelteforge.db</code> — the main database file</li>
-	<li><code>svelteforge.db-wal</code> — the write-ahead log (uncommitted changes)</li>
-	<li><code>svelteforge.db-shm</code> — shared memory index for the WAL</li>
+	<li><code>Admin-template.db</code> — the main database file</li>
+	<li><code>Admin-template.db-wal</code> — the write-ahead log (uncommitted changes)</li>
+	<li><code>Admin-template.db-shm</code> — shared memory index for the WAL</li>
 </ul>
 
 <p>
@@ -451,10 +451,10 @@ pm2 startup</code></pre>
 </p>
 
 <pre><code class="language-bash"># Method 1: SQLite backup command (recommended — creates a clean copy)
-sqlite3 svelteforge.db ".backup /backups/svelteforge-$(date +%Y%m%d).db"
+sqlite3 Admin-template.db ".backup /backups/Admin-template-$(date +%Y%m%d).db"
 
 # Method 2: Copy all WAL files together
-cp svelteforge.db svelteforge.db-wal svelteforge.db-shm /backups/</code></pre>
+cp Admin-template.db Admin-template.db-wal Admin-template.db-shm /backups/</code></pre>
 
 <h3>Automated Backup Strategies</h3>
 
@@ -462,7 +462,7 @@ cp svelteforge.db svelteforge.db-wal svelteforge.db-shm /backups/</code></pre>
 	<li>
 		<strong>Cron job</strong> — Schedule a daily backup with <code>crontab -e</code>:
 		<pre><code class="language-bash"># Daily backup at 3 AM
-0 3 * * * sqlite3 /app/data/svelteforge.db ".backup /backups/svelteforge-$(date +\%Y\%m\%d).db"</code></pre>
+0 3 * * * sqlite3 /app/data/Admin-template.db ".backup /backups/Admin-template-$(date +\%Y\%m\%d).db"</code></pre>
 	</li>
 	<li>
 		<strong>Volume snapshots</strong> — If using Railway, Fly.io, or a cloud VPS, take periodic
@@ -485,7 +485,7 @@ cp svelteforge.db svelteforge.db-wal svelteforge.db-shm /backups/</code></pre>
 	<li>
 		<strong>WAL mode enables concurrent reads</strong> — Multiple <strong>SvelteKit</strong> server
 		load functions can query the database simultaneously without blocking each other. This is
-		enabled by default in SvelteForge Admin.
+		enabled by default in Admin-template Admin.
 	</li>
 	<li>
 		<strong>Single-writer limitation</strong> — Only one write transaction can execute at a time.
@@ -592,7 +592,7 @@ cp svelteforge.db svelteforge.db-wal svelteforge.db-shm /backups/</code></pre>
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -600,7 +600,7 @@ cp svelteforge.db svelteforge.db-wal svelteforge.db-shm /backups/</code></pre>
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

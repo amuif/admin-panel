@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Testing - SvelteForge Admin Documentation</title>
+	<title>Testing - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Complete testing guide for SvelteForge Admin — Vitest unit tests with in-memory SQLite, Playwright E2E tests, and testing patterns for Svelte 5 and SvelteKit form actions."
+		content="Complete testing guide for Admin-template Admin — Vitest unit tests with in-memory SQLite, Playwright E2E tests, and testing patterns for Svelte 5 and SvelteKit form actions."
 	/>
 </svelte:head>
 
 <h1>Testing</h1>
 
 <p>
-	SvelteForge Admin uses two complementary testing frameworks: <strong>Vitest</strong> for fast unit
+	Admin-template Admin uses two complementary testing frameworks: <strong>Vitest</strong> for fast unit
 	tests of server logic, and <strong>Playwright</strong> for end-to-end browser testing.
 	Both are fully integrated into the <strong>SvelteKit</strong> project and designed to work with
 	<strong>Svelte 5</strong> and the custom session-based auth system.
@@ -73,7 +73,7 @@ export default defineConfig(&#123;
 <h2>Test Database Pattern</h2>
 
 <p>
-	This is the most critical pattern in SvelteForge's testing setup. Tests
+	This is the most critical pattern in Admin-template's testing setup. Tests
 	<strong>never touch the development database</strong>. Instead, each test gets a fresh
 	in-memory SQLite database with the full schema applied. This ensures tests are fast, isolated,
 	and repeatable.
@@ -279,7 +279,7 @@ expect(result.success).toBe(true);</code></pre>
 <h2>Testing Form Actions</h2>
 
 <p>
-	<strong>SvelteKit</strong> form actions are the primary mutation mechanism in SvelteForge Admin.
+	<strong>SvelteKit</strong> form actions are the primary mutation mechanism in Admin-template Admin.
 	Here is a complete example testing a user creation action:
 </p>
 
@@ -504,7 +504,7 @@ test("user can register, login, and access dashboard", async (&#123; page &#125;
 <h3>Test Authorization Boundaries</h3>
 
 <p>
-	SvelteForge Admin uses role-based access control (<code>admin</code>, <code>editor</code>,
+	Admin-template Admin uses role-based access control (<code>admin</code>, <code>editor</code>,
 	<code>viewer</code>). Tests should verify that admin-only actions reject non-admin users:
 </p>
 
@@ -595,7 +595,7 @@ expect(updatedUser.role).toBe("editor"); // Verify DB state</code></pre>
 				Go Premium with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin demonstrates testing fundamentals for <strong>Svelte 5</strong> and
+				Admin-template Admin demonstrates testing fundamentals for <strong>Svelte 5</strong> and
 				<strong>SvelteKit</strong> applications. Our premium templates at DashboardPack ship with
 				comprehensive test suites out of the box — Vitest unit tests covering every form action
 				and server load, plus Playwright E2E tests for complete user flows including
@@ -621,7 +621,7 @@ expect(updatedUser.role).toBe("editor"); // Verify DB state</code></pre>
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -629,7 +629,7 @@ expect(updatedUser.role).toBe("editor"); // Verify DB state</code></pre>
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

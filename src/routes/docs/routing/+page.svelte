@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Routing - SvelteForge Admin Documentation</title>
+	<title>Routing - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Understand SvelteKit's file-based routing in SvelteForge Admin. Route groups, auth guards, layouts, breadcrumbs, form actions, and API routes for your Svelte 5 admin dashboard."
+		content="Understand SvelteKit's file-based routing in Admin-template Admin. Route groups, auth guards, layouts, breadcrumbs, form actions, and API routes for your Svelte 5 admin dashboard."
 	/>
 </svelte:head>
 
 <h1>Routing &amp; Navigation</h1>
 
 <p>
-	SvelteForge Admin is built on <strong>SvelteKit's</strong> file-based routing system.
+	Admin-template Admin is built on <strong>SvelteKit's</strong> file-based routing system.
 	Every file inside <code>src/routes/</code> automatically becomes a route in your application —
 	no router configuration needed. <strong>SvelteKit</strong> handles server-side rendering,
 	client-side navigation, data loading, and form handling out of the box for every route your
@@ -59,11 +59,11 @@
 	</tbody>
 </table>
 
-<h2>Route Groups in SvelteForge</h2>
+<h2>Route Groups in Admin-template</h2>
 
 <p>
 	<strong>SvelteKit</strong> supports <strong>route groups</strong> — directories wrapped in
-	parentheses that organize routes with shared layouts without affecting the URL. SvelteForge Admin
+	parentheses that organize routes with shared layouts without affecting the URL. Admin-template Admin
 	uses route groups extensively to separate concerns:
 </p>
 
@@ -345,7 +345,7 @@ export const load: LayoutServerLoad = async (&#123; locals &#125;) =&gt; &#123;
 
 <p>
 	<strong>SvelteKit's</strong> <code>hooks.server.ts</code> runs on <em>every</em> request before
-	any route handler. SvelteForge uses it to validate sessions and populate
+	any route handler. Admin-template uses it to validate sessions and populate
 	<code>event.locals</code>:
 </p>
 
@@ -401,7 +401,7 @@ declare global &#123;
 
 <p>
 	<strong>SvelteKit</strong> nests layouts automatically. Each route group has its own layout that
-	wraps all pages within it. SvelteForge Admin has four distinct layout trees:
+	wraps all pages within it. Admin-template Admin has four distinct layout trees:
 </p>
 
 <h3>Root Layout</h3>
@@ -487,7 +487,7 @@ declare global &#123;
 <h2>Adding New Routes</h2>
 
 <p>
-	Adding a new protected page to SvelteForge Admin takes four steps. Because
+	Adding a new protected page to Admin-template Admin takes four steps. Because
 	<strong>SvelteKit's</strong> file-based routing and the <code>(app)</code> layout guard work
 	together, your new route is automatically authenticated and styled.
 </p>
@@ -548,7 +548,7 @@ export const load: PageServerLoad = async () =&gt; &#123;
 
 <p>
 	<strong>SvelteKit</strong> form actions handle server-side mutations (create, update, delete)
-	with built-in progressive enhancement. SvelteForge Admin uses them throughout — here is a
+	with built-in progressive enhancement. Admin-template Admin uses them throughout — here is a
 	pattern from the user management page:
 </p>
 
@@ -693,7 +693,7 @@ export const GET: RequestHandler = async (&#123; url, locals &#125;) =&gt; &#123
 <h2>Page Transitions</h2>
 
 <p>
-	SvelteForge Admin uses the <strong>View Transitions API</strong> for smooth cross-fade
+	Admin-template Admin uses the <strong>View Transitions API</strong> for smooth cross-fade
 	animations when navigating between pages. <strong>SvelteKit</strong> has built-in support for
 	view transitions — you can enable them by adding the <code>onNavigate</code> lifecycle hook:
 </p>
@@ -720,7 +720,7 @@ export const GET: RequestHandler = async (&#123; url, locals &#125;) =&gt; &#123
 <h2>Summary</h2>
 
 <p>
-	<strong>SvelteKit's</strong> routing system gives SvelteForge Admin a clean, convention-based
+	<strong>SvelteKit's</strong> routing system gives Admin-template Admin a clean, convention-based
 	architecture:
 </p>
 
@@ -761,7 +761,7 @@ export const GET: RequestHandler = async (&#123; url, locals &#125;) =&gt; &#123
 				Go Premium with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin demonstrates <strong>SvelteKit's</strong> routing capabilities
+				Admin-template Admin demonstrates <strong>SvelteKit's</strong> routing capabilities
 				with a handful of well-crafted pages. DashboardPack premium templates take it
 				further with 50+ pages, nested route hierarchies, multi-step wizards,
 				tabbed interfaces, and advanced <strong>Svelte 5</strong> component patterns — all
@@ -784,7 +784,7 @@ export const GET: RequestHandler = async (&#123; url, locals &#125;) =&gt; &#123
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -792,7 +792,7 @@ export const GET: RequestHandler = async (&#123; url, locals &#125;) =&gt; &#123
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

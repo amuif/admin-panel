@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Database - SvelteForge Admin Documentation</title>
+	<title>Database - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Learn how SvelteForge Admin uses SQLite with Drizzle ORM and better-sqlite3 in WAL mode. Complete schema reference, migrations, seeding, and query patterns for your Svelte 5 and SvelteKit admin dashboard."
+		content="Learn how Admin-template Admin uses SQLite with Drizzle ORM and better-sqlite3 in WAL mode. Complete schema reference, migrations, seeding, and query patterns for your Svelte 5 and SvelteKit admin dashboard."
 	/>
 </svelte:head>
 
 <h1>Database</h1>
 
 <p>
-	SvelteForge Admin uses <strong>SQLite</strong> as its database, accessed through
+	Admin-template Admin uses <strong>SQLite</strong> as its database, accessed through
 	<strong>Drizzle ORM</strong> with the <strong>better-sqlite3</strong> driver. This gives your
 	<strong>Svelte 5</strong> and <strong>SvelteKit</strong> application a zero-configuration,
 	high-performance database that lives as a single file in your project root.
@@ -24,7 +24,7 @@
 <ul>
 	<li>
 		<strong>Zero configuration</strong> — No database server to install, configure, or maintain.
-		Just a single file (<code>svelteforge.db</code>) in your project root.
+		Just a single file (<code>Admin-template.db</code>) in your project root.
 	</li>
 	<li>
 		<strong>Lightning fast</strong> — Reads are faster than PostgreSQL or MySQL for typical admin
@@ -55,7 +55,7 @@ import Database from "better-sqlite3";
 import &#123; drizzle &#125; from "drizzle-orm/better-sqlite3";
 import * as schema from "./schema.js";
 
-const dbPath = process.env.DATABASE_URL || "svelteforge.db";
+const dbPath = process.env.DATABASE_URL || "Admin-template.db";
 const sqlite = new Database(dbPath);
 sqlite.pragma("journal_mode = WAL");
 
@@ -71,7 +71,7 @@ export const db = drizzle(sqlite, &#123; schema &#125;);</code></pre>
 	</li>
 	<li>
 		<strong><code>DATABASE_URL</code> env var</strong> — Defaults to
-		<code>svelteforge.db</code> in the project root. Override it in production to point to a
+		<code>Admin-template.db</code> in the project root. Override it in production to point to a
 		persistent volume.
 	</li>
 	<li>
@@ -640,7 +640,7 @@ export type AppSetting = typeof appSettings.$inferSelect;</code></pre>
 <h2>ID Generation</h2>
 
 <p>
-	All entity IDs in SvelteForge Admin are generated using cryptographic randomness, defined in
+	All entity IDs in Admin-template Admin are generated using cryptographic randomness, defined in
 	<code>src/lib/server/id.ts</code>:
 </p>
 
@@ -670,7 +670,7 @@ export function generateId(length: number = 15): string &#123;
 <h2>Migrations &amp; Schema Changes</h2>
 
 <p>
-	SvelteForge Admin uses <strong>Drizzle Kit</strong> for database migrations. The configuration
+	Admin-template Admin uses <strong>Drizzle Kit</strong> for database migrations. The configuration
 	lives in <code>drizzle.config.ts</code>:
 </p>
 
@@ -682,7 +682,7 @@ export default defineConfig(&#123;
   out: "./drizzle",
   dialect: "sqlite",
   dbCredentials: &#123;
-    url: "svelteforge.db",
+    url: "Admin-template.db",
   &#125;,
 &#125;);</code></pre>
 
@@ -788,7 +788,7 @@ export default defineConfig(&#123;
 		19456, timeCost: 2, outputLen: 32, parallelism: 1).
 	</li>
 	<li>
-		<strong>Login with:</strong> <code>admin@svelteforge.dev</code> / <code>password123</code> (or
+		<strong>Login with:</strong> <code>admin@Admin-template.dev</code> / <code>password123</code> (or
 		any seeded user with <code>password123</code>).
 	</li>
 	<li>
@@ -822,7 +822,7 @@ export default defineConfig(&#123;
 
 <p>
 	Here are common Drizzle ORM query patterns used throughout the <strong>SvelteKit</strong> server
-	routes in SvelteForge Admin.
+	routes in Admin-template Admin.
 </p>
 
 <h3>Select All Records</h3>
@@ -848,7 +848,7 @@ const allUsers = await db
 
 // Using the relational query API
 const user = await db.query.users.findFirst(&#123;
-  where: eq(users.email, "admin@svelteforge.dev"),
+  where: eq(users.email, "admin@Admin-template.dev"),
 &#125;);</code></pre>
 
 <h3>Insert a Record</h3>
@@ -922,7 +922,7 @@ const results = await db
 				Go Premium with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin demonstrates a solid SQLite + Drizzle ORM setup for
+				Admin-template Admin demonstrates a solid SQLite + Drizzle ORM setup for
 				<strong>Svelte 5</strong> and <strong>SvelteKit</strong>. Need more advanced database
 				patterns? DashboardPack premium templates include multi-tenant schemas, advanced CRUD
 				interfaces with pagination/filtering/sorting, data import/export, and
@@ -945,7 +945,7 @@ const results = await db
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -953,7 +953,7 @@ const results = await db
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

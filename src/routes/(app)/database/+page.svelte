@@ -11,7 +11,7 @@
 </script>
 
 <svelte:head>
-	<title>Database - SvelteForge Admin</title>
+	<title>Database - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

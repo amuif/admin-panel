@@ -47,7 +47,7 @@
 </script>
 
 <svelte:head>
-	<title>Roles - SvelteForge Admin</title>
+	<title>Roles - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

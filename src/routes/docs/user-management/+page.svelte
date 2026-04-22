@@ -1,13 +1,13 @@
 <script>
 	const premiumUrl =
-		'https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium';
+		'https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium';
 </script>
 
 <svelte:head>
-	<title>User Management - SvelteForge Admin Documentation</title>
+	<title>User Management - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Complete guide to user management in SvelteForge Admin — CRUD operations, RBAC, bulk actions, and export powered by Svelte 5 and SvelteKit."
+		content="Complete guide to user management in Admin-template Admin — CRUD operations, RBAC, bulk actions, and export powered by Svelte 5 and SvelteKit."
 	/>
 </svelte:head>
 
@@ -15,7 +15,7 @@
 	<h1>User Management</h1>
 
 	<p class="lead">
-		SvelteForge Admin provides full CRUD operations for user management, powered by
+		Admin-template Admin provides full CRUD operations for user management, powered by
 		<strong>SvelteKit</strong> form actions and <strong>Svelte 5</strong> reactivity. Users are stored
 		in SQLite via Drizzle ORM with Argon2id password hashing, role-based access control, and comprehensive
 		server-side validation.
@@ -190,7 +190,7 @@ export const load: PageServerLoad = async () => {
 	<h2>Role-Based Access Control (RBAC)</h2>
 
 	<p>
-		SvelteForge Admin implements a three-tier role system. The first user to register is
+		Admin-template Admin implements a three-tier role system. The first user to register is
 		automatically assigned the <strong>Admin</strong> role.
 	</p>
 

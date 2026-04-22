@@ -1,4 +1,4 @@
-# SvelteForge Admin
+# Admin-template Admin
 
 A production-ready admin dashboard template built with **SvelteKit 2**, **Svelte 5**, **Tailwind CSS 4**, and **Drizzle ORM**. Features custom session-based authentication, optional OAuth (Google & GitHub), role-based access control, and a full suite of admin tools -- all with zero external auth dependencies.
 
@@ -41,63 +41,63 @@ A production-ready admin dashboard template built with **SvelteKit 2**, **Svelte
 
 ## Premium Dashboards from DashboardPack
 
-Loved SvelteForge? Supercharge your workflow with our premium templates on [DashboardPack](https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge) -- built for production, backed by dedicated support.
+Loved Admin-template? Supercharge your workflow with our premium templates on [DashboardPack](https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template) -- built for production, backed by dedicated support.
 
 <table>
   <tr>
     <td align="center" width="33%">
-      <a href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge">
+      <a href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template">
         <img src="screenshots/apex.png" alt="Apex -- premium Next.js admin dashboard with 50+ pages" width="100%">
       </a>
       <br>
-      <a href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Apex</strong></a>
+      <a href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Apex</strong></a>
       <br>
       <sub>Next.js 16 + React 19 + Tailwind CSS v4. 50+ pages, full CRUD, live theme customizer, 5 dashboards.</sub>
     </td>
     <td align="center" width="33%">
-      <a href="https://dashboardpack.com/theme-details/zenith-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge">
+      <a href="https://dashboardpack.com/theme-details/zenith-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template">
         <img src="screenshots/zenith.png" alt="Zenith -- achromatic Next.js admin dashboard with clean minimal design" width="100%">
       </a>
       <br>
-      <a href="https://dashboardpack.com/theme-details/zenith-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Zenith</strong></a>
+      <a href="https://dashboardpack.com/theme-details/zenith-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Zenith</strong></a>
       <br>
       <sub>Next.js 16 + React 19 + Tailwind CSS v4. Achromatic design, drag-and-drop, i18n, RTL support.</sub>
     </td>
     <td align="center" width="33%">
-      <a href="https://dashboardpack.com/theme-details/signal-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge">
+      <a href="https://dashboardpack.com/theme-details/signal-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template">
         <img src="screenshots/signal.png" alt="Signal -- modern Next.js admin dashboard with bold design" width="100%">
       </a>
       <br>
-      <a href="https://dashboardpack.com/theme-details/signal-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Signal</strong></a>
+      <a href="https://dashboardpack.com/theme-details/signal-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Signal</strong></a>
       <br>
       <sub>Next.js 16 + React 19 + Tailwind CSS v4. 10 chart types, Storybook, 3 layout options.</sub>
     </td>
   </tr>
   <tr>
     <td align="center" width="33%">
-      <a href="https://dashboardpack.com/theme-details/ember-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge">
+      <a href="https://dashboardpack.com/theme-details/ember-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template">
         <img src="screenshots/ember.png" alt="Ember -- minimal Next.js admin dashboard with achromatic design" width="100%">
       </a>
       <br>
-      <a href="https://dashboardpack.com/theme-details/ember-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Ember</strong></a>
+      <a href="https://dashboardpack.com/theme-details/ember-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Ember</strong></a>
       <br>
       <sub>Next.js 16 + React 19 + Tailwind CSS v4. Clean minimal design, Kanban, Calendar, Chat.</sub>
     </td>
     <td align="center" width="33%">
-      <a href="https://dashboardpack.com/theme-details/flux-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge">
+      <a href="https://dashboardpack.com/theme-details/flux-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template">
         <img src="screenshots/flux.png" alt="Flux -- gradient-forward Next.js admin dashboard for startups" width="100%">
       </a>
       <br>
-      <a href="https://dashboardpack.com/theme-details/flux-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Flux</strong></a>
+      <a href="https://dashboardpack.com/theme-details/flux-nextjs/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Flux</strong></a>
       <br>
       <sub>Next.js 16 + React 19 + Tailwind CSS v4. Gradient design, frosted glass UI, startup-native data.</sub>
     </td>
     <td align="center" width="33%">
-      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge">
+      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template">
         <img src="screenshots/admindek.png" alt="Admindek -- comprehensive Bootstrap 5 admin template" width="100%">
       </a>
       <br>
-      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Admindek</strong></a>
+      <a href="https://dashboardpack.com/theme-details/admindek-html/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Admindek</strong></a>
       <br>
       <sub>Bootstrap 5 + vanilla JS. 100+ components, theme customizer, RTL, 10 color palettes.</sub>
     </td>
@@ -105,7 +105,7 @@ Loved SvelteForge? Supercharge your workflow with our premium templates on [Dash
 </table>
 
 <p align="center">
-  <a href="https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=svelteforge"><strong>Browse All Premium Templates on DashboardPack</strong></a>
+  <a href="https://dashboardpack.com/?utm_source=github&utm_medium=readme&utm_campaign=Admin-template"><strong>Browse All Premium Templates on DashboardPack</strong></a>
 </p>
 
 ---
@@ -239,8 +239,8 @@ Three built-in roles with different permission levels:
 
 ```bash
 # Clone the repository
-git clone https://github.com/colorlibhq/svelteforge-admin.git
-cd svelteforge-admin
+git clone https://github.com/colorlibhq/Admin-template-admin.git
+cd Admin-template-admin
 
 # Install dependencies
 pnpm install
@@ -420,7 +420,7 @@ src/
 
 ### Requirements
 
-SvelteForge Admin uses **SQLite** with the `better-sqlite3` native module. Your hosting environment must support:
+Admin-template Admin uses **SQLite** with the `better-sqlite3` native module. Your hosting environment must support:
 
 - **Node.js runtime** (not edge/serverless)
 - **Native module compilation** (better-sqlite3)
@@ -446,15 +446,15 @@ SvelteForge Admin uses **SQLite** with the `better-sqlite3` native module. Your 
 A `Dockerfile` is included for containerized deployments:
 
 ```bash
-docker build -t svelteforge-admin .
-docker run -p 3000:3000 -v ./data:/app/data svelteforge-admin
+docker build -t Admin-template-admin .
+docker run -p 3000:3000 -v ./data:/app/data Admin-template-admin
 ```
 
 ### Environment Variables
 
 ```env
 # Required
-DATABASE_URL=svelteforge.db        # SQLite database file path
+DATABASE_URL=Admin-template.db        # SQLite database file path
 
 # Required for production
 ORIGIN=https://yourdomain.com      # Used for OAuth redirect URIs
@@ -480,7 +480,7 @@ Components are installed to `src/lib/components/ui/`. Do not edit them directly 
 
 ### Theming
 
-Edit `src/app.css` to customize the color palette. SvelteForge Admin uses Tailwind CSS 4's native CSS theming with OKLCH colors and CSS custom properties for light/dark mode.
+Edit `src/app.css` to customize the color palette. Admin-template Admin uses Tailwind CSS 4's native CSS theming with OKLCH colors and CSS custom properties for light/dark mode.
 
 ### Adding New Routes
 

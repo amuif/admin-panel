@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>API Reference - SvelteForge Admin Documentation</title>
+	<title>API Reference - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Complete API reference for SvelteForge Admin — auth module, OAuth, database, ID generation, export utilities, and API endpoints. All typed with TypeScript for Svelte 5 and SvelteKit."
+		content="Complete API reference for Admin-template Admin — auth module, OAuth, database, ID generation, export utilities, and API endpoints. All typed with TypeScript for Svelte 5 and SvelteKit."
 	/>
 </svelte:head>
 
 <h1>API Reference</h1>
 
 <p>
-	SvelteForge Admin exposes server-side utilities for authentication, database access, data export,
+	Admin-template Admin exposes server-side utilities for authentication, database access, data export,
 	and ID generation — all fully typed with TypeScript. These modules power the
 	<strong>Svelte 5</strong> and <strong>SvelteKit</strong> application and are available for use in
 	your own server routes, form actions, and hooks.
@@ -217,7 +217,7 @@ const allUsers = await db.select().from(users);
 
 // Relational query API
 const user = await db.query.users.findFirst(&#123;
-  where: eq(users.email, "admin@svelteforge.dev"),
+  where: eq(users.email, "admin@Admin-template.dev"),
 &#125;);</code></pre>
 
 <h3>Schema Tables</h3>
@@ -429,7 +429,7 @@ const classes = cn(
 <h2>API Endpoints</h2>
 
 <p>
-	SvelteForge Admin includes two API endpoints accessible via standard HTTP requests.
+	Admin-template Admin includes two API endpoints accessible via standard HTTP requests.
 </p>
 
 <h3><code>GET /api/search?q=&#123;query&#125;</code></h3>
@@ -447,7 +447,7 @@ GET /api/search?q=admin
   "results": [
     &#123;
       "title": "Admin User",
-      "description": "admin@svelteforge.dev",
+      "description": "admin@Admin-template.dev",
       "url": "/users",
       "category": "Users",
       "icon": "users"
@@ -550,7 +550,7 @@ export const load = async (event) =&gt; &#123;
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -558,7 +558,7 @@ export const load = async (event) =&gt; &#123;
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

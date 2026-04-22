@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Notifications - SvelteForge Admin Documentation</title>
+	<title>Notifications - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="In-app notification system for SvelteForge Admin — built with SvelteKit form actions, Svelte 5 reactivity, and Drizzle ORM."
+		content="In-app notification system for Admin-template Admin — built with SvelteKit form actions, Svelte 5 reactivity, and Drizzle ORM."
 	/>
 </svelte:head>
 
 <h1>Notifications</h1>
 
 <p>
-	SvelteForge Admin includes a full in-app notification system built with
+	Admin-template Admin includes a full in-app notification system built with
 	<strong>SvelteKit</strong> form actions and <strong>Svelte 5</strong> reactivity. Notifications
 	support four severity types, per-user and global targeting, real-time badge counts, and bulk
 	operations — all without any external dependencies or third-party services.
@@ -483,7 +483,7 @@ $effect(() =&gt; &#123;
 		</div>
 		<div class="shrink-0">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"

@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "svelteforge-admin",
+      "name": "Admin-template-admin",
       "dependencies": {
         "@node-rs/argon2": "^2.0.2",
         "@oslojs/crypto": "^1.0.1",

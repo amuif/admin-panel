@@ -7,7 +7,7 @@ import { eq, and, ne } from "drizzle-orm";
 import type { Actions, PageServerLoad } from "./$types.js";
 
 const defaultSettings: Record<string, string> = {
-	siteName: "SvelteForge Admin",
+	siteName: "Admin-template Admin",
 	timezone: "UTC",
 	defaultRole: "viewer",
 	maintenanceMode: "false",
@@ -169,7 +169,7 @@ export const actions: Actions = {
 		const maintenanceMode = formData.get("maintenanceMode");
 
 		const entries: [string, string][] = [
-			["siteName", typeof siteName === "string" ? siteName : "SvelteForge Admin"],
+			["siteName", typeof siteName === "string" ? siteName : "Admin-template Admin"],
 			["timezone", typeof timezone === "string" ? timezone : "UTC"],
 			["defaultRole", typeof defaultRole === "string" ? defaultRole : "viewer"],
 			["maintenanceMode", maintenanceMode === "on" ? "true" : "false"],

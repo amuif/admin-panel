@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Project Structure - SvelteForge Admin Documentation</title>
+	<title>Project Structure - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Understand the complete file and directory structure of SvelteForge Admin, a SvelteKit 2 + Svelte 5 admin dashboard with session-based auth, Drizzle ORM, and Tailwind CSS 4."
+		content="Understand the complete file and directory structure of Admin-template Admin, a SvelteKit 2 + Svelte 5 admin dashboard with session-based auth, Drizzle ORM, and Tailwind CSS 4."
 	/>
 </svelte:head>
 
 <h1>Project Structure</h1>
 
 <p>
-	SvelteForge Admin follows <strong>SvelteKit's</strong> file-based routing conventions and
+	Admin-template Admin follows <strong>SvelteKit's</strong> file-based routing conventions and
 	<strong>Svelte 5's</strong> component architecture. Every directory and file has a specific
 	purpose — understanding this structure is key to extending the dashboard efficiently.
 </p>
@@ -17,13 +17,13 @@
 <p>
 	Because <strong>SvelteKit</strong> uses the filesystem as its router, the <code>src/routes/</code>
 	directory directly maps to URL paths. Route groups (directories in parentheses) share layouts
-	without affecting the URL, which is how SvelteForge separates protected, auth, public, and
+	without affecting the URL, which is how Admin-template separates protected, auth, public, and
 	documentation pages.
 </p>
 
 <h2>Complete File Tree</h2>
 
-<pre><code>svelteforge-admin/
+<pre><code>Admin-template-admin/
 ├── src/
 │   ├── routes/                      # SvelteKit file-based routing
 │   │   ├── (app)/                   # Protected routes (auth required)
@@ -118,7 +118,7 @@
 ├── static/                          # Static assets (favicon, images)
 ├── tests/                           # Playwright E2E test files
 │
-├── svelteforge.db                   # SQLite database (gitignored)
+├── Admin-template.db                   # SQLite database (gitignored)
 ├── drizzle.config.ts                # Drizzle ORM configuration
 ├── vite.config.ts                   # Vite + SvelteKit configuration
 ├── svelte.config.js                 # Svelte compiler configuration
@@ -133,7 +133,7 @@
 <p>
 	<strong>SvelteKit</strong> route groups are a powerful organizational tool. Directories wrapped in
 	parentheses — like <code>(app)</code> — create layout boundaries without adding URL segments.
-	SvelteForge uses four route groups to cleanly separate concerns:
+	Admin-template uses four route groups to cleanly separate concerns:
 </p>
 
 <h3><code>(app)/</code> — Protected Routes</h3>
@@ -204,7 +204,7 @@ export const load: LayoutServerLoad = async (&#123; locals &#125;) =&gt; &#123;
 	<strong>SvelteKit</strong> enforces a strict server boundary. Any module inside
 	<code>$lib/server/</code> is guaranteed to never be bundled into client-side JavaScript. If you
 	accidentally import a server module from a <code>.svelte</code> component, the build will fail with
-	a clear error. This is critical for SvelteForge because sensitive code lives here:
+	a clear error. This is critical for Admin-template because sensitive code lives here:
 </p>
 
 <h3><code>auth.ts</code> — Session Management</h3>
@@ -392,7 +392,7 @@ export function cn(...inputs: ClassValue[]) &#123;
 
 <p>
 	<strong>Tailwind CSS 4</strong> replaces the traditional JavaScript config with native CSS.
-	SvelteForge defines its design tokens using the <code>@theme</code> directive with OKLCH colors,
+	Admin-template defines its design tokens using the <code>@theme</code> directive with OKLCH colors,
 	supporting both light and dark modes. This is where you customize the color palette, border
 	radii, fonts, and other design tokens.
 </p>
@@ -417,7 +417,7 @@ export function cn(...inputs: ClassValue[]) &#123;
 <h3><code>src/hooks.server.ts</code> — Server Hooks</h3>
 
 <p>
-	<strong>SvelteKit</strong> server hooks run on <strong>every single request</strong>. SvelteForge
+	<strong>SvelteKit</strong> server hooks run on <strong>every single request</strong>. Admin-template
 	uses this to validate the session cookie, populate <code>event.locals.user</code> and
 	<code>event.locals.session</code>, auto-extend session cookies, and update session metadata (user
 	agent and IP address). This is the foundation of the authentication system — see
@@ -440,7 +440,7 @@ export function cn(...inputs: ClassValue[]) &#123;
 		</tr>
 		<tr>
 			<td><code>drizzle.config.ts</code></td>
-			<td>Drizzle ORM configuration pointing to <code>src/lib/server/db/schema.ts</code> as the schema source and <code>svelteforge.db</code> as the SQLite database file.</td>
+			<td>Drizzle ORM configuration pointing to <code>src/lib/server/db/schema.ts</code> as the schema source and <code>Admin-template.db</code> as the SQLite database file.</td>
 		</tr>
 		<tr>
 			<td><code>svelte.config.js</code></td>
@@ -464,10 +464,10 @@ export function cn(...inputs: ClassValue[]) &#123;
 <h2>Database File</h2>
 
 <p>
-	The SQLite database file <code>svelteforge.db</code> lives at the project root. It is
+	The SQLite database file <code>Admin-template.db</code> lives at the project root. It is
 	<strong>gitignored</strong> and created automatically when you run <code>pnpm db:push</code>. The
 	database runs in WAL (Write-Ahead Logging) mode for better concurrent read performance. You will
-	also see <code>svelteforge.db-shm</code> and <code>svelteforge.db-wal</code> files — these are
+	also see <code>Admin-template.db-shm</code> and <code>Admin-template.db-wal</code> files — these are
 	WAL support files managed by SQLite.
 </p>
 
@@ -487,7 +487,7 @@ export function cn(...inputs: ClassValue[]) &#123;
 				Go Premium with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin gives you a clean, well-organized <strong>Svelte 5</strong> +
+				Admin-template Admin gives you a clean, well-organized <strong>Svelte 5</strong> +
 				<strong>SvelteKit</strong> foundation. When your project outgrows it — 50+ pages,
 				multiple dashboard layouts, advanced CRUD generators, theme customizers, and
 				production-grade components — DashboardPack has you covered.
@@ -512,7 +512,7 @@ export function cn(...inputs: ClassValue[]) &#123;
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -520,7 +520,7 @@ export function cn(...inputs: ClassValue[]) &#123;
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

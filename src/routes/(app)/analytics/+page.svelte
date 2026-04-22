@@ -59,7 +59,7 @@
 </script>
 
 <svelte:head>
-	<title>Analytics - SvelteForge Admin</title>
+	<title>Analytics - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

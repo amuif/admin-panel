@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<title>Reset Password - SvelteForge Admin</title>
+	<title>Reset Password - Admin-template Admin</title>
 </svelte:head>
 
 <div class="bg-background flex min-h-screen items-center justify-center p-4">

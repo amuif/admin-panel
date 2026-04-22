@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Analytics & Charts - SvelteForge Admin Documentation</title>
+	<title>Analytics & Charts - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Data visualization with LayerChart v2 in SvelteForge Admin — a Svelte 5 + SvelteKit dashboard with D3-based reactive charts."
+		content="Data visualization with LayerChart v2 in Admin-template Admin — a Svelte 5 + SvelteKit dashboard with D3-based reactive charts."
 	/>
 </svelte:head>
 
 <h1>Analytics & Charts</h1>
 
 <p>
-	SvelteForge Admin uses <strong>LayerChart v2</strong> for all data visualization. LayerChart is a
+	Admin-template Admin uses <strong>LayerChart v2</strong> for all data visualization. LayerChart is a
 	D3-based charting library <strong>purpose-built for Svelte</strong> — it is fully reactive,
 	composable, and SSR-compatible out of the box. Combined with <strong>Svelte 5</strong> runes and
 	<strong>SvelteKit</strong> server-side data loading, the analytics system delivers fast,
@@ -231,7 +231,7 @@ export default defineConfig(&#123;
 <h3>Chart Configuration Objects</h3>
 
 <p>
-	SvelteForge uses <code>Chart.ChartConfig</code> from shadcn-svelte to define labels and colors
+	Admin-template uses <code>Chart.ChartConfig</code> from shadcn-svelte to define labels and colors
 	for each data series:
 </p>
 
@@ -283,7 +283,7 @@ export default defineConfig(&#123;
 
 <p>
 	LayerChart charts must re-render when the color mode changes so they pick up the updated CSS
-	custom properties. SvelteForge wraps each chart in a <code>&#123;#key mode.current&#125;</code>
+	custom properties. Admin-template wraps each chart in a <code>&#123;#key mode.current&#125;</code>
 	block using <code>mode-watcher</code>:
 </p>
 
@@ -437,7 +437,7 @@ export const load: PageServerLoad = async () =&gt; &#123;
 <h3>Using D3 Utilities</h3>
 
 <p>
-	LayerChart works with standard D3 modules. The most commonly used in SvelteForge:
+	LayerChart works with standard D3 modules. The most commonly used in Admin-template:
 </p>
 
 <ul>
@@ -511,7 +511,7 @@ pnpm add -D @types/d3-scale @types/d3-array @types/d3-shape</code></pre>
 		</div>
 		<div class="shrink-0">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"

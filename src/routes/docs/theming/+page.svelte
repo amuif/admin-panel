@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Theming &amp; Styling - SvelteForge Admin Documentation</title>
+	<title>Theming &amp; Styling - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Learn how SvelteForge Admin uses Tailwind CSS 4 with OKLCH colors, native CSS theming, and dark mode — all powered by Svelte 5 and SvelteKit."
+		content="Learn how Admin-template Admin uses Tailwind CSS 4 with OKLCH colors, native CSS theming, and dark mode — all powered by Svelte 5 and SvelteKit."
 	/>
 </svelte:head>
 
 <h1>Theming &amp; Styling</h1>
 
 <p>
-	SvelteForge Admin uses <strong>Tailwind CSS 4</strong> with a native CSS theming system — there is
+	Admin-template Admin uses <strong>Tailwind CSS 4</strong> with a native CSS theming system — there is
 	no JavaScript configuration file. All colors are defined using the <strong>OKLCH color space</strong>,
 	mapped to semantic design tokens, and consumed by both Tailwind utility classes and
 	<strong>shadcn-svelte</strong> components. Dark mode is handled by
@@ -19,7 +19,7 @@
 <h2>Tailwind CSS 4 Setup</h2>
 
 <p>
-	Tailwind CSS 4 is a ground-up rewrite that moves configuration into native CSS. SvelteForge
+	Tailwind CSS 4 is a ground-up rewrite that moves configuration into native CSS. Admin-template
 	Admin's setup lives entirely in <code>src/app.css</code>:
 </p>
 
@@ -43,7 +43,7 @@
 <h4>Vite plugin</h4>
 
 <p>
-	On the build side, SvelteForge uses <code>@tailwindcss/vite</code> as a Vite plugin. This replaces
+	On the build side, Admin-template uses <code>@tailwindcss/vite</code> as a Vite plugin. This replaces
 	the PostCSS-based setup from Tailwind v3 and provides faster compilation integrated directly into
 	the <strong>SvelteKit</strong> dev server.
 </p>
@@ -51,7 +51,7 @@
 <h2>OKLCH Color System</h2>
 
 <p>
-	All colors in SvelteForge Admin are defined in the <strong>OKLCH</strong> color space rather than
+	All colors in Admin-template Admin are defined in the <strong>OKLCH</strong> color space rather than
 	the traditional HSL. OKLCH stands for:
 </p>
 
@@ -159,7 +159,7 @@
 
 <p>
 	Tailwind CSS 4 uses a <code>@theme</code> directive to map CSS custom properties to Tailwind
-	utility classes. SvelteForge Admin defines this in <code>src/app.css</code>:
+	utility classes. Admin-template Admin defines this in <code>src/app.css</code>:
 </p>
 
 <pre><code class="language-css">@theme inline &#123;
@@ -205,7 +205,7 @@
 <h2>Dark Mode Implementation</h2>
 
 <p>
-	SvelteForge Admin uses class-based dark mode powered by the <strong>mode-watcher</strong> library.
+	Admin-template Admin uses class-based dark mode powered by the <strong>mode-watcher</strong> library.
 	Here is how all the pieces fit together in the <strong>SvelteKit</strong> application:
 </p>
 
@@ -319,7 +319,7 @@
 <h2>Typography</h2>
 
 <p>
-	SvelteForge Admin uses the <strong>system font stack</strong> via Tailwind's default
+	Admin-template Admin uses the <strong>system font stack</strong> via Tailwind's default
 	<code>font-sans</code> — this means the app uses the native font on each platform (SF Pro on
 	macOS, Segoe UI on Windows, Roboto on Android) for the fastest possible text rendering with no
 	web font downloads.
@@ -334,7 +334,7 @@
 <h2>Responsive Design</h2>
 
 <p>
-	SvelteForge Admin follows a <strong>mobile-first</strong> approach. Base styles target small
+	Admin-template Admin follows a <strong>mobile-first</strong> approach. Base styles target small
 	screens, and responsive breakpoints add complexity for larger viewports.
 </p>
 
@@ -361,7 +361,7 @@
 <h2>Base Layer Styles</h2>
 
 <p>
-	SvelteForge Admin applies two global base styles via Tailwind's <code>@layer base</code>
+	Admin-template Admin applies two global base styles via Tailwind's <code>@layer base</code>
 	directive:
 </p>
 
@@ -410,7 +410,7 @@
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"

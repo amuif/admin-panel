@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Settings - SvelteForge Admin Documentation</title>
+	<title>Settings - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Comprehensive guide to SvelteForge Admin's settings page — profile updates, password changes, session management, app settings, and appearance — all built with Svelte 5 runes and SvelteKit form actions."
+		content="Comprehensive guide to Admin-template Admin's settings page — profile updates, password changes, session management, app settings, and appearance — all built with Svelte 5 runes and SvelteKit form actions."
 	/>
 </svelte:head>
 
 <h1>Settings</h1>
 
 <p>
-	The Settings page is one of the most feature-rich areas of SvelteForge Admin, combining multiple
+	The Settings page is one of the most feature-rich areas of Admin-template Admin, combining multiple
 	management sections into a single tabbed interface. Built entirely with <strong>Svelte 5</strong>
 	runes and <strong>SvelteKit</strong> form actions, it covers profile management, password changes,
 	session auditing, application configuration, and appearance preferences — all with progressive
@@ -244,7 +244,7 @@ revokeAllOtherSessions: async (&#123; locals &#125;) =&gt; &#123;
 		<tr>
 			<td><code>siteName</code></td>
 			<td>Application display name shown in the sidebar and browser title</td>
-			<td><code>SvelteForge Admin</code></td>
+			<td><code>Admin-template Admin</code></td>
 		</tr>
 		<tr>
 			<td><code>timezone</code></td>
@@ -343,7 +343,7 @@ const isDark = $derived(mode.current === "dark");
 
 <p>
 	The Settings page demonstrates several key <strong>Svelte 5</strong> patterns that are used
-	throughout SvelteForge Admin:
+	throughout Admin-template Admin:
 </p>
 
 <h3>Tabbed Interface with <code>$state</code></h3>
@@ -427,7 +427,7 @@ const isDark = $derived(mode.current === "dark");
 				Go Premium with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin provides a complete settings foundation with <strong>Svelte 5</strong>
+				Admin-template Admin provides a complete settings foundation with <strong>Svelte 5</strong>
 				and <strong>SvelteKit</strong>. Need profile picture upload with drag-and-drop, two-factor
 				authentication (TOTP/SMS), billing management with Stripe integration, and team
 				administration with invite flows? Our premium templates at DashboardPack include all of
@@ -453,7 +453,7 @@ const isDark = $derived(mode.current === "dark");
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -461,7 +461,7 @@ const isDark = $derived(mode.current === "dark");
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

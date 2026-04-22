@@ -37,67 +37,67 @@ async function seed() {
 
 	const userData = [
 		// 12 months ago (2 users)
-		{ name: "Admin User", email: "admin@svelteforge.dev", username: "admin", role: "admin" as const, daysAgo: 365 },
-		{ name: "Sarah Chen", email: "sarah@svelteforge.dev", username: "sarah", role: "admin" as const, daysAgo: 358 },
+		{ name: "Admin User", email: "admin@Admin-template.dev", username: "admin", role: "admin" as const, daysAgo: 365 },
+		{ name: "Sarah Chen", email: "sarah@Admin-template.dev", username: "sarah", role: "admin" as const, daysAgo: 358 },
 		// 11 months ago (2 users)
-		{ name: "Marcus Johnson", email: "marcus@svelteforge.dev", username: "marcus", role: "editor" as const, daysAgo: 340 },
-		{ name: "Elena Rodriguez", email: "elena@svelteforge.dev", username: "elena", role: "editor" as const, daysAgo: 332 },
+		{ name: "Marcus Johnson", email: "marcus@Admin-template.dev", username: "marcus", role: "editor" as const, daysAgo: 340 },
+		{ name: "Elena Rodriguez", email: "elena@Admin-template.dev", username: "elena", role: "editor" as const, daysAgo: 332 },
 		// 10 months ago (3 users)
-		{ name: "James Park", email: "james@svelteforge.dev", username: "james", role: "editor" as const, daysAgo: 310 },
-		{ name: "Priya Sharma", email: "priya@svelteforge.dev", username: "priya", role: "admin" as const, daysAgo: 305 },
-		{ name: "Alex Turner", email: "alex@svelteforge.dev", username: "alex", role: "viewer" as const, daysAgo: 298 },
+		{ name: "James Park", email: "james@Admin-template.dev", username: "james", role: "editor" as const, daysAgo: 310 },
+		{ name: "Priya Sharma", email: "priya@Admin-template.dev", username: "priya", role: "admin" as const, daysAgo: 305 },
+		{ name: "Alex Turner", email: "alex@Admin-template.dev", username: "alex", role: "viewer" as const, daysAgo: 298 },
 		// 9 months ago (3 users)
-		{ name: "Mei Lin", email: "mei@svelteforge.dev", username: "mei", role: "editor" as const, daysAgo: 278 },
-		{ name: "David Kim", email: "david@svelteforge.dev", username: "david", role: "viewer" as const, daysAgo: 270 },
-		{ name: "Rachel Foster", email: "rachel@svelteforge.dev", username: "rachel", role: "viewer" as const, daysAgo: 265 },
+		{ name: "Mei Lin", email: "mei@Admin-template.dev", username: "mei", role: "editor" as const, daysAgo: 278 },
+		{ name: "David Kim", email: "david@Admin-template.dev", username: "david", role: "viewer" as const, daysAgo: 270 },
+		{ name: "Rachel Foster", email: "rachel@Admin-template.dev", username: "rachel", role: "viewer" as const, daysAgo: 265 },
 		// 8 months ago (3 users)
-		{ name: "Olivia Brown", email: "olivia@svelteforge.dev", username: "olivia", role: "editor" as const, daysAgo: 248 },
-		{ name: "Lucas Miller", email: "lucas@svelteforge.dev", username: "lucas", role: "viewer" as const, daysAgo: 242 },
-		{ name: "Anya Petrov", email: "anya@svelteforge.dev", username: "anya", role: "viewer" as const, daysAgo: 235 },
+		{ name: "Olivia Brown", email: "olivia@Admin-template.dev", username: "olivia", role: "editor" as const, daysAgo: 248 },
+		{ name: "Lucas Miller", email: "lucas@Admin-template.dev", username: "lucas", role: "viewer" as const, daysAgo: 242 },
+		{ name: "Anya Petrov", email: "anya@Admin-template.dev", username: "anya", role: "viewer" as const, daysAgo: 235 },
 		// 7 months ago (4 users)
-		{ name: "Noah Williams", email: "noah@svelteforge.dev", username: "noah", role: "editor" as const, daysAgo: 218 },
-		{ name: "Zara Ahmed", email: "zara@svelteforge.dev", username: "zara", role: "viewer" as const, daysAgo: 212 },
-		{ name: "Carlos Diaz", email: "carlos@svelteforge.dev", username: "carlos", role: "viewer" as const, daysAgo: 208 },
-		{ name: "Sophie Martin", email: "sophie@svelteforge.dev", username: "sophie", role: "admin" as const, daysAgo: 202 },
+		{ name: "Noah Williams", email: "noah@Admin-template.dev", username: "noah", role: "editor" as const, daysAgo: 218 },
+		{ name: "Zara Ahmed", email: "zara@Admin-template.dev", username: "zara", role: "viewer" as const, daysAgo: 212 },
+		{ name: "Carlos Diaz", email: "carlos@Admin-template.dev", username: "carlos", role: "viewer" as const, daysAgo: 208 },
+		{ name: "Sophie Martin", email: "sophie@Admin-template.dev", username: "sophie", role: "admin" as const, daysAgo: 202 },
 		// 6 months ago (4 users)
-		{ name: "Raj Patel", email: "raj@svelteforge.dev", username: "raj", role: "editor" as const, daysAgo: 188 },
-		{ name: "Emma Davis", email: "emma@svelteforge.dev", username: "emma", role: "viewer" as const, daysAgo: 182 },
-		{ name: "Felix Larsson", email: "felix@svelteforge.dev", username: "felix", role: "viewer" as const, daysAgo: 178 },
-		{ name: "Leila Hassan", email: "leila@svelteforge.dev", username: "leila", role: "editor" as const, daysAgo: 172 },
+		{ name: "Raj Patel", email: "raj@Admin-template.dev", username: "raj", role: "editor" as const, daysAgo: 188 },
+		{ name: "Emma Davis", email: "emma@Admin-template.dev", username: "emma", role: "viewer" as const, daysAgo: 182 },
+		{ name: "Felix Larsson", email: "felix@Admin-template.dev", username: "felix", role: "viewer" as const, daysAgo: 178 },
+		{ name: "Leila Hassan", email: "leila@Admin-template.dev", username: "leila", role: "editor" as const, daysAgo: 172 },
 		// 5 months ago (5 users)
-		{ name: "Tyler Brooks", email: "tyler@svelteforge.dev", username: "tyler", role: "viewer" as const, daysAgo: 158 },
-		{ name: "Yuki Tanaka", email: "yuki@svelteforge.dev", username: "yuki", role: "editor" as const, daysAgo: 152 },
-		{ name: "Grace Wong", email: "grace@svelteforge.dev", username: "grace", role: "viewer" as const, daysAgo: 148 },
-		{ name: "Liam O'Brien", email: "liam@svelteforge.dev", username: "liam", role: "viewer" as const, daysAgo: 142 },
-		{ name: "Nina Volkov", email: "nina@svelteforge.dev", username: "nina", role: "admin" as const, daysAgo: 138 },
+		{ name: "Tyler Brooks", email: "tyler@Admin-template.dev", username: "tyler", role: "viewer" as const, daysAgo: 158 },
+		{ name: "Yuki Tanaka", email: "yuki@Admin-template.dev", username: "yuki", role: "editor" as const, daysAgo: 152 },
+		{ name: "Grace Wong", email: "grace@Admin-template.dev", username: "grace", role: "viewer" as const, daysAgo: 148 },
+		{ name: "Liam O'Brien", email: "liam@Admin-template.dev", username: "liam", role: "viewer" as const, daysAgo: 142 },
+		{ name: "Nina Volkov", email: "nina@Admin-template.dev", username: "nina", role: "admin" as const, daysAgo: 138 },
 		// 4 months ago (5 users)
-		{ name: "Oscar Reyes", email: "oscar@svelteforge.dev", username: "oscar", role: "editor" as const, daysAgo: 125 },
-		{ name: "Hannah Lee", email: "hannah@svelteforge.dev", username: "hannah", role: "viewer" as const, daysAgo: 118 },
-		{ name: "Ben Carter", email: "ben@svelteforge.dev", username: "ben", role: "viewer" as const, daysAgo: 112 },
-		{ name: "Amara Johnson", email: "amara@svelteforge.dev", username: "amara", role: "viewer" as const, daysAgo: 108 },
-		{ name: "Kai Nakamura", email: "kai@svelteforge.dev", username: "kai", role: "editor" as const, daysAgo: 102 },
+		{ name: "Oscar Reyes", email: "oscar@Admin-template.dev", username: "oscar", role: "editor" as const, daysAgo: 125 },
+		{ name: "Hannah Lee", email: "hannah@Admin-template.dev", username: "hannah", role: "viewer" as const, daysAgo: 118 },
+		{ name: "Ben Carter", email: "ben@Admin-template.dev", username: "ben", role: "viewer" as const, daysAgo: 112 },
+		{ name: "Amara Johnson", email: "amara@Admin-template.dev", username: "amara", role: "viewer" as const, daysAgo: 108 },
+		{ name: "Kai Nakamura", email: "kai@Admin-template.dev", username: "kai", role: "editor" as const, daysAgo: 102 },
 		// 3 months ago (6 users)
-		{ name: "Clara Fischer", email: "clara@svelteforge.dev", username: "clara", role: "viewer" as const, daysAgo: 92 },
-		{ name: "Derek Stone", email: "derek@svelteforge.dev", username: "derek", role: "viewer" as const, daysAgo: 88 },
-		{ name: "Fatima Al-Rashid", email: "fatima@svelteforge.dev", username: "fatima", role: "editor" as const, daysAgo: 82 },
-		{ name: "George Papadopoulos", email: "george@svelteforge.dev", username: "george", role: "viewer" as const, daysAgo: 78 },
-		{ name: "Ingrid Bergstrom", email: "ingrid@svelteforge.dev", username: "ingrid", role: "viewer" as const, daysAgo: 72 },
-		{ name: "Jordan Rivers", email: "jordan@svelteforge.dev", username: "jordan", role: "viewer" as const, daysAgo: 68 },
+		{ name: "Clara Fischer", email: "clara@Admin-template.dev", username: "clara", role: "viewer" as const, daysAgo: 92 },
+		{ name: "Derek Stone", email: "derek@Admin-template.dev", username: "derek", role: "viewer" as const, daysAgo: 88 },
+		{ name: "Fatima Al-Rashid", email: "fatima@Admin-template.dev", username: "fatima", role: "editor" as const, daysAgo: 82 },
+		{ name: "George Papadopoulos", email: "george@Admin-template.dev", username: "george", role: "viewer" as const, daysAgo: 78 },
+		{ name: "Ingrid Bergstrom", email: "ingrid@Admin-template.dev", username: "ingrid", role: "viewer" as const, daysAgo: 72 },
+		{ name: "Jordan Rivers", email: "jordan@Admin-template.dev", username: "jordan", role: "viewer" as const, daysAgo: 68 },
 		// 2 months ago (6 users)
-		{ name: "Kenji Watanabe", email: "kenji@svelteforge.dev", username: "kenji", role: "editor" as const, daysAgo: 55 },
-		{ name: "Laura Bianchi", email: "laura@svelteforge.dev", username: "laura", role: "viewer" as const, daysAgo: 52 },
-		{ name: "Michael Chen", email: "michael@svelteforge.dev", username: "michael", role: "viewer" as const, daysAgo: 48 },
-		{ name: "Nadia Kowalski", email: "nadia@svelteforge.dev", username: "nadia", role: "viewer" as const, daysAgo: 44 },
-		{ name: "Pablo Ruiz", email: "pablo@svelteforge.dev", username: "pablo", role: "editor" as const, daysAgo: 40 },
-		{ name: "Quinn Taylor", email: "quinn@svelteforge.dev", username: "quinn", role: "viewer" as const, daysAgo: 38 },
+		{ name: "Kenji Watanabe", email: "kenji@Admin-template.dev", username: "kenji", role: "editor" as const, daysAgo: 55 },
+		{ name: "Laura Bianchi", email: "laura@Admin-template.dev", username: "laura", role: "viewer" as const, daysAgo: 52 },
+		{ name: "Michael Chen", email: "michael@Admin-template.dev", username: "michael", role: "viewer" as const, daysAgo: 48 },
+		{ name: "Nadia Kowalski", email: "nadia@Admin-template.dev", username: "nadia", role: "viewer" as const, daysAgo: 44 },
+		{ name: "Pablo Ruiz", email: "pablo@Admin-template.dev", username: "pablo", role: "editor" as const, daysAgo: 40 },
+		{ name: "Quinn Taylor", email: "quinn@Admin-template.dev", username: "quinn", role: "viewer" as const, daysAgo: 38 },
 		// Last month (7 users)
-		{ name: "Ruby Anderson", email: "ruby@svelteforge.dev", username: "ruby", role: "viewer" as const, daysAgo: 28 },
-		{ name: "Samuel Okonkwo", email: "samuel@svelteforge.dev", username: "samuel", role: "editor" as const, daysAgo: 24 },
-		{ name: "Tara Singh", email: "tara@svelteforge.dev", username: "tara", role: "viewer" as const, daysAgo: 20 },
-		{ name: "Ulrich Weber", email: "ulrich@svelteforge.dev", username: "ulrich", role: "viewer" as const, daysAgo: 16 },
-		{ name: "Valentina Costa", email: "valentina@svelteforge.dev", username: "valentina", role: "viewer" as const, daysAgo: 12 },
-		{ name: "Wesley Morgan", email: "wesley@svelteforge.dev", username: "wesley", role: "viewer" as const, daysAgo: 6 },
-		{ name: "Xia Zhang", email: "xia@svelteforge.dev", username: "xia", role: "viewer" as const, daysAgo: 2 },
+		{ name: "Ruby Anderson", email: "ruby@Admin-template.dev", username: "ruby", role: "viewer" as const, daysAgo: 28 },
+		{ name: "Samuel Okonkwo", email: "samuel@Admin-template.dev", username: "samuel", role: "editor" as const, daysAgo: 24 },
+		{ name: "Tara Singh", email: "tara@Admin-template.dev", username: "tara", role: "viewer" as const, daysAgo: 20 },
+		{ name: "Ulrich Weber", email: "ulrich@Admin-template.dev", username: "ulrich", role: "viewer" as const, daysAgo: 16 },
+		{ name: "Valentina Costa", email: "valentina@Admin-template.dev", username: "valentina", role: "viewer" as const, daysAgo: 12 },
+		{ name: "Wesley Morgan", email: "wesley@Admin-template.dev", username: "wesley", role: "viewer" as const, daysAgo: 6 },
+		{ name: "Xia Zhang", email: "xia@Admin-template.dev", username: "xia", role: "viewer" as const, daysAgo: 2 },
 	];
 
 	const userIds: string[] = [];
@@ -232,7 +232,7 @@ async function seed() {
 	// --- NOTIFICATIONS ---
 	console.log("Creating notifications...");
 	const notificationData = [
-		{ title: "Welcome to SvelteForge", message: "Your admin dashboard is ready to use.", type: "success" as const, days: 365, read: true, global: true },
+		{ title: "Welcome to Admin-template", message: "Your admin dashboard is ready to use.", type: "success" as const, days: 365, read: true, global: true },
 		{ title: "New user registered", message: "Marcus Johnson has joined as an editor.", type: "info" as const, days: 340, read: true, global: false },
 		{ title: "Content published", message: '"Getting Started Guide" is now live.', type: "success" as const, days: 335, read: true, global: false },
 		{ title: "Server maintenance scheduled", message: "Planned downtime on Saturday 2AM-4AM UTC.", type: "warning" as const, days: 320, read: true, global: true },
@@ -283,7 +283,7 @@ async function seed() {
 	// --- APP SETTINGS ---
 	console.log("Creating app settings...");
 	const settingsData = [
-		{ key: "siteName", value: "SvelteForge Admin" },
+		{ key: "siteName", value: "Admin-template Admin" },
 		{ key: "timezone", value: "America/New_York" },
 		{ key: "defaultRole", value: "viewer" },
 		{ key: "maintenanceMode", value: "false" },
@@ -302,7 +302,7 @@ async function seed() {
 	console.log(`  ${userData.length} users (password: password123)`);
 	console.log(`  ${pageData.length} pages (${pageData.filter(p => p.status === "published").length} published, ${pageData.filter(p => p.status === "draft").length} draft, ${pageData.filter(p => p.status === "archived").length} archived)`);
 	console.log(`  ${notificationData.length} notifications`);
-	console.log("Login: admin@svelteforge.dev / password123 (or any user with password123)");
+	console.log("Login: admin@Admin-template.dev / password123 (or any user with password123)");
 }
 
 seed()

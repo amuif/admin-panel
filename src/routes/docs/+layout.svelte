@@ -72,7 +72,7 @@
 </script>
 
 <svelte:head>
-	<title>Documentation - SvelteForge Admin</title>
+	<title>Documentation - Admin-template Admin</title>
 </svelte:head>
 
 <div class="bg-background min-h-screen">
@@ -83,14 +83,14 @@
 				<div class="bg-primary text-primary-foreground flex size-7 items-center justify-center rounded-md">
 					<ZapIcon class="size-4" />
 				</div>
-				<span class="text-sm font-bold">SvelteForge</span>
+				<span class="text-sm font-bold">Admin-template</span>
 			</a>
 			<span class="text-muted-foreground text-sm">/</span>
 			<a href="/docs" class="text-sm font-medium">Docs</a>
 
 			<div class="ml-auto flex items-center gap-3">
 				<a
-					href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs-header&utm_campaign=premium"
+					href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs-header&utm_campaign=premium"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="bg-primary text-primary-foreground hover:bg-primary/90 hidden items-center gap-1.5 rounded-md px-3 py-1.5 text-xs font-medium transition-colors sm:flex"
@@ -152,7 +152,7 @@
 					<!-- DashboardPack Promo in Sidebar -->
 					<div class="border-t pt-4">
 						<a
-							href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs-sidebar&utm_campaign=premium"
+							href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs-sidebar&utm_campaign=premium"
 							target="_blank"
 							rel="noopener noreferrer"
 							class="group block rounded-lg border border-dashed p-3 transition-colors hover:border-primary hover:bg-primary/5"

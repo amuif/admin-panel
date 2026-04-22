@@ -103,7 +103,7 @@
 								<ZapIcon class="size-4" />
 							</div>
 							<div class="flex flex-col gap-0.5 leading-none">
-								<span class="font-semibold">SvelteForge</span>
+								<span class="font-semibold">Admin-template</span>
 								<span class="text-xs">Admin Dashboard</span>
 							</div>
 						</a>

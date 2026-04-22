@@ -1,15 +1,15 @@
 <svelte:head>
-	<title>Authentication - SvelteForge Admin Documentation</title>
+	<title>Authentication - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Deep dive into SvelteForge Admin's custom session-based authentication built with Svelte 5, SvelteKit server hooks, @oslojs/crypto, Argon2id, and Arctic OAuth."
+		content="Deep dive into Admin-template Admin's custom session-based authentication built with Svelte 5, SvelteKit server hooks, @oslojs/crypto, Argon2id, and Arctic OAuth."
 	/>
 </svelte:head>
 
 <h1>Authentication</h1>
 
 <p>
-	SvelteForge Admin implements authentication from scratch using <strong>SvelteKit's</strong> server
+	Admin-template Admin implements authentication from scratch using <strong>SvelteKit's</strong> server
 	infrastructure — no Lucia, no Auth.js, no external auth framework. The entire system is built on
 	three low-level libraries:
 </p>
@@ -207,7 +207,7 @@ export function deleteSessionCookie(cookies: Cookies): void &#123;
 
 <p>
 	<strong>SvelteKit</strong> server hooks run on <strong>every single request</strong> — page loads,
-	form submissions, API calls, everything. SvelteForge's <code>hooks.server.ts</code> is the
+	form submissions, API calls, everything. Admin-template's <code>hooks.server.ts</code> is the
 	backbone of the auth system:
 </p>
 
@@ -265,7 +265,7 @@ export const handle: Handle = async (&#123; event, resolve &#125;) =&gt; &#123;
 <h2>Password Hashing</h2>
 
 <p>
-	SvelteForge uses <strong>Argon2id</strong> via <code>@node-rs/argon2</code> — the winner of the
+	Admin-template uses <strong>Argon2id</strong> via <code>@node-rs/argon2</code> — the winner of the
 	Password Hashing Competition and the recommended algorithm for new applications. The parameters
 	are tuned for security:
 </p>
@@ -719,7 +719,7 @@ console.log(`[Password Reset] URL: /reset-password?token=$&#123;token&#125;`);</
 				Go Premium with DashboardPack
 			</h3>
 			<p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-				SvelteForge Admin gives you a solid <strong>Svelte 5</strong> +
+				Admin-template Admin gives you a solid <strong>Svelte 5</strong> +
 				<strong>SvelteKit</strong> authentication foundation. When you need enterprise-grade
 				features — multi-tenant auth, 2FA, API key management, audit logs, and advanced RBAC
 				— check out the premium templates at DashboardPack.
@@ -744,7 +744,7 @@ console.log(`[Password Reset] URL: /reset-password?token=$&#123;token&#125;`);</
 		</div>
 		<div class="flex shrink-0 flex-col gap-2">
 			<a
-				href="https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center gap-2 rounded-lg px-5 py-2.5 text-sm font-semibold shadow-sm transition-colors"
@@ -752,7 +752,7 @@ console.log(`[Password Reset] URL: /reset-password?token=$&#123;token&#125;`);</
 				Go Premium
 			</a>
 			<a
-				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium"
+				href="https://dashboardpack.com/theme-details/apex-nextjs/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="text-primary hover:text-primary/80 text-center text-xs font-medium transition-colors"

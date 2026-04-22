@@ -91,7 +91,7 @@
 </script>
 
 <svelte:head>
-	<title>Settings - SvelteForge Admin</title>
+	<title>Settings - Admin-template Admin</title>
 </svelte:head>
 
 <div class="space-y-6">

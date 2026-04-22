@@ -19,20 +19,20 @@
 </script>
 
 <MetaTags
-	title="SvelteForge Admin"
-	titleTemplate="%s | SvelteForge Admin"
+	title="Admin-template Admin"
+	titleTemplate="%s | Admin-template Admin"
 	description="A full-featured admin dashboard built with SvelteKit 2, Svelte 5, Tailwind CSS 4, Drizzle ORM, and session-based auth."
 	openGraph={{
 		type: "website",
-		url: "https://svelteforge-admin.dev",
-		title: "SvelteForge Admin",
+		url: "https://Admin-template-admin.dev",
+		title: "Admin-template Admin",
 		description:
 			"A full-featured admin dashboard built with SvelteKit 2, Svelte 5, Tailwind CSS 4, Drizzle ORM, and session-based auth.",
-		siteName: "SvelteForge Admin",
+		siteName: "Admin-template Admin",
 	}}
 	twitter={{
 		cardType: "summary",
-		title: "SvelteForge Admin",
+		title: "Admin-template Admin",
 		description:
 			"A full-featured admin dashboard built with SvelteKit 2, Svelte 5, Tailwind CSS 4, Drizzle ORM, and session-based auth.",
 	}}

@@ -1,13 +1,13 @@
 <script>
 	const premiumUrl =
-		'https://dashboardpack.com/?utm_source=svelteforge&utm_medium=docs&utm_campaign=premium';
+		'https://dashboardpack.com/?utm_source=Admin-template&utm_medium=docs&utm_campaign=premium';
 </script>
 
 <svelte:head>
-	<title>Content Management - SvelteForge Admin Documentation</title>
+	<title>Content Management - Admin-template Admin Documentation</title>
 	<meta
 		name="description"
-		content="Complete guide to the built-in CMS in SvelteForge Admin — page editor, templates, status workflow, and export powered by Svelte 5 and SvelteKit."
+		content="Complete guide to the built-in CMS in Admin-template Admin — page editor, templates, status workflow, and export powered by Svelte 5 and SvelteKit."
 	/>
 </svelte:head>
 
@@ -15,7 +15,7 @@
 	<h1>Content Management</h1>
 
 	<p class="lead">
-		SvelteForge Admin includes a built-in CMS for creating and managing pages, powered by
+		Admin-template Admin includes a built-in CMS for creating and managing pages, powered by
 		<strong>SvelteKit</strong> form actions and <strong>Drizzle ORM</strong>. Content is stored in
 		SQLite with full status workflow support, template selection, and automatic author tracking — all
 		driven by <strong>Svelte 5</strong> reactivity.

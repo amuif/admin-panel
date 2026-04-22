@@ -65,7 +65,7 @@
 </script>
 
 <svelte:head>
-	<title>Pricing - SvelteForge Admin</title>
+	<title>Pricing - Admin-template Admin</title>
 </svelte:head>
 
 <div class="mx-auto max-w-6xl px-4 py-16">
