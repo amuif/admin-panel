@@ -1,5 +1,5 @@
 {
-	"name": "svelteforge-admin",
+	"name": "adminkit",
 	"private": true,
 	"version": "1.0.0",
 	"type": "module",

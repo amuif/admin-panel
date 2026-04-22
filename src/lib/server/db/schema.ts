@@ -77,7 +77,7 @@ export const oauthAccounts = pgTable(
 		userId: text("user_id")
 			.notNull()
 			.references(() => users.id),
-		provider: text("provider", { enum: ["google", "github"] }).notNull(),
+		provider: text("provider", { enum: ["google"] }).notNull(),
 		providerUserId: text("provider_user_id").notNull(),
 		created_at: timestamp("created_at", { mode: "date" }).defaultNow().notNull(),
 	},
