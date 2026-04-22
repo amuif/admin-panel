@@ -1,3 +1,3 @@
 {
-  "outputDirectory": ".build/client"
+  "outputDirectory": ".svelte-kit/output/client"
 }
