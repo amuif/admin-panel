@@ -11,7 +11,7 @@ export const users = pgTable("users", {
 	role: text("role", { enum: ["admin", "editor", "viewer"] })
 		.notNull()
 		.default("viewer"),
-	created_at: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
 	updatedAt: timestamp("updated_at").defaultNow()
 		.notNull()
 		.$defaultFn(() => new Date()),
@@ -25,7 +25,7 @@ export const sessions = pgTable("sessions", {
 	expiresAt: integer("expires_at").notNull(),
 	userAgent: text("user_agent"),
 	ipAddress: text("ip_address"),
-	created_at: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const pages = pgTable("pages", {
@@ -58,7 +58,7 @@ export const notifications = pgTable("notifications", {
 		.notNull()
 		.default("info"),
 	read: boolean("read").notNull().default(false),
-	created_at: timestamp("created_at").defaultNow().notNull(),
+	createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 export const passwordResetTokens = pgTable("password_reset_tokens", {

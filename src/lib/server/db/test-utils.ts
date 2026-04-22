@@ -1,5 +1,5 @@
-import Database from "better-sqlite3";
-import { drizzle } from "drizzle-orm/better-sqlite3";
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
 import * as schema from "./schema.js";
 import { hash } from "@node-rs/argon2";
 import { generateId } from "../id.js";
@@ -13,28 +13,27 @@ CREATE TABLE IF NOT EXISTS users (
 	name text NOT NULL,
 	avatar_url text,
 	role text DEFAULT 'viewer' NOT NULL,
-	created_at integer NOT NULL,
-	updated_at integer NOT NULL
+	created_at timestamptz NOT NULL,
+	updated_at timestamptz NOT NULL
 );
+
 CREATE UNIQUE INDEX IF NOT EXISTS users_email_unique ON users (email);
 CREATE UNIQUE INDEX IF NOT EXISTS users_username_unique ON users (username);
 
 CREATE TABLE IF NOT EXISTS sessions (
 	id text PRIMARY KEY NOT NULL,
-	user_id text NOT NULL,
-	expires_at integer NOT NULL,
+	user_id text NOT NULL REFERENCES users(id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+	expires_at timestamptz NOT NULL,
 	user_agent text,
 	ip_address text,
-	created_at integer,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE no action ON DELETE no action
+	created_at timestamptz
 );
 
 CREATE TABLE IF NOT EXISTS password_reset_tokens (
 	id text PRIMARY KEY NOT NULL,
-	user_id text NOT NULL,
+	user_id text NOT NULL REFERENCES users(id) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	token_hash text NOT NULL,
-	expires_at integer NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE no action ON DELETE no action
+	expires_at timestamptz NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS pages (
@@ -44,47 +43,55 @@ CREATE TABLE IF NOT EXISTS pages (
 	content text DEFAULT '' NOT NULL,
 	template text DEFAULT 'default' NOT NULL,
 	status text DEFAULT 'draft' NOT NULL,
-	author_id text NOT NULL,
-	created_at integer NOT NULL,
-	updated_at integer NOT NULL,
-	published_at integer,
-	FOREIGN KEY (author_id) REFERENCES users(id) ON UPDATE no action ON DELETE no action
+	author_id text NOT NULL REFERENCES users(id) ON UPDATE NO ACTION ON DELETE NO ACTION,
+	created_at timestamptz NOT NULL,
+	updated_at timestamptz NOT NULL,
+	published_at timestamptz
 );
+
 CREATE UNIQUE INDEX IF NOT EXISTS pages_slug_unique ON pages (slug);
 
 CREATE TABLE IF NOT EXISTS notifications (
 	id text PRIMARY KEY NOT NULL,
-	user_id text,
+	user_id text REFERENCES users(id) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	title text NOT NULL,
 	message text NOT NULL,
 	type text DEFAULT 'info' NOT NULL,
-	read integer DEFAULT false NOT NULL,
-	created_at integer NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE no action ON DELETE no action
+	read boolean DEFAULT false NOT NULL,
+	created_at timestamptz NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS oauth_accounts (
 	id text PRIMARY KEY NOT NULL,
-	user_id text NOT NULL,
+	user_id text NOT NULL REFERENCES users(id) ON UPDATE NO ACTION ON DELETE NO ACTION,
 	provider text NOT NULL,
 	provider_user_id text NOT NULL,
-	created_at integer NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES users(id) ON UPDATE no action ON DELETE no action
+	created_at timestamptz NOT NULL
 );
+
 CREATE UNIQUE INDEX IF NOT EXISTS oauth_provider_user_idx ON oauth_accounts (provider, provider_user_id);
 
 CREATE TABLE IF NOT EXISTS app_settings (
 	key text PRIMARY KEY NOT NULL,
 	value text NOT NULL,
-	updated_at integer NOT NULL
+	updated_at timestamptz NOT NULL
 );
 `;
 
-export function createTestDb() {
-	const sqlite = new Database(":memory:");
-	sqlite.pragma("journal_mode = WAL");
-	sqlite.exec(SCHEMA_SQL);
-	return drizzle(sqlite, { schema });
+export async function createTestDb() {
+	// For Supabase, you'd use the connection string from environment variables
+	const connectionString = process.env.DATABASE_URL;
+	if (!connectionString) {
+		throw new Error("DATABASE_URL environment variable is not set");
+	}
+	
+	const client = postgres(connectionString);
+	const db = drizzle(client, { schema });
+	
+	// Run the schema creation (you might want to do this differently in production)
+	await client.unsafe(SCHEMA_SQL);
+	
+	return db;
 }
 
 export async function createTestUser(
@@ -105,7 +112,7 @@ export async function createTestUser(
 		parallelism: 1,
 	});
 
-	await db.insert(schema.users).values({
+	await (await db).insert(schema.users).values({
 		id,
 		name: overrides.name ?? "Test User",
 		email: overrides.email ?? `${id}@test.com`,
@@ -128,7 +135,7 @@ export function createMockLocals(userId: string, role: string = "admin") {
 			username: "testuser",
 			role,
 		},
-		session: { id: "test-session", userId, expiresAt: Date.now() + 86400000 },
+		session: { id: "test-session", userId, expiresAt: new Date(Date.now() + 86400000) },
 	};
 }
 
